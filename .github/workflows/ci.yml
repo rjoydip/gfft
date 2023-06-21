@@ -93,8 +93,6 @@ jobs:
       - name: Coverage
         if: always()
         uses: davelosert/vitest-coverage-report-action@v2
-        with:
-          working-directory: './packages'
 
   test_cli:
     runs-on: ${{ matrix.os }}
