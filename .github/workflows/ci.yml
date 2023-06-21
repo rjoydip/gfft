@@ -86,7 +86,7 @@ jobs:
         run: pnpm i
 
       - name: Test
-        run: >
+        run: |
           pnpm run test:ci
           pnpm run test:coverage
 
