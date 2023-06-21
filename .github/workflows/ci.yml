@@ -86,7 +86,9 @@ jobs:
         run: pnpm i
 
       - name: Test
-        run: pnpm run test:ci
+        run: >
+          pnpm run test:ci
+          pnpm run test:coverage
 
       - name: Coverage
         if: always()
