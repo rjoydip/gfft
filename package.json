@@ -8,7 +8,7 @@
   "license": "MIT",
   "sideEffects": true,
   "engines": {
-    "node": "^14.18.0 || >=16.0.0"
+    "node": ">=16.0.0"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -21,17 +21,17 @@
     "dev": "NODE_OPTIONS=\"--max-old-space-size=8192\" pnpm -r --parallel --filter='./packages/**' run dev",
     "publish": "pnpm -r publish --access public",
     "release": "bumpp package.json packages/*/package.json --commit --push --tag",
-    "coverage": "nr test:run --coverage",
-    "coverage:preview": "nr test:ui --coverage",
     "test": "vitest packages",
-    "test:ui": "vitest packages --ui",
-    "test:run": "vitest run -r packages",
     "test:ci": "CI=true nr test:run",
     "test:cli": "pnpm -r --stream run test:cli",
+    "test:coverage": "nr test:run --coverage",
+    "test:coverage:preview": "nr test:ui --coverage",
+    "test:ui": "vitest packages --ui",
+    "test:run": "vitest run -r packages",
     "typecheck": "tsc --noEmit",
     "clean": "pnpm -r --parallel --filter='./packages/**' run clean && rimraf .eslintcache coverage",
     "clean:nm": "pnpm -r --parallel --filter='./packages/**' run clean:nm && rimraf packages/node_modules node_modules",
-    "all": "nr clean && ni && nu && nr typecheck && nr format && nr lint:fix && nr build && nr test:ci && nr coverage"
+    "all": "nr clean && ni && nu && nr typecheck && nr format && nr lint:fix && nr build && nr test:ci && nr test:coverage"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.4",
