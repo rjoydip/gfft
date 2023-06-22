@@ -14,11 +14,9 @@ env: # Comment env block if you do not want to apply fixes
   APPLY_FIXES: none
   APPLY_FIXES_EVENT: pull_request # Decide which event triggers application of fixes in a commit or a PR (pull_request, push, all)
   APPLY_FIXES_MODE: commit
-  REPOSITORY_CHECKOV: false
-  COPYPASTE_JSCPD: false
+  DISABLE_LINTERS: COPYPASTE_JSCPD, SPELL_CSPELL
   JAVASCRIPT_DEFAULT_STYLE: prettier
   TYPESCRIPT_DEFAULT_STYLE: prettier
-  SPELL_CSPELL_CONFIG_FILE: ../../.cspell.json
 
 concurrency:
   group: ${{ github.ref }}-${{ github.workflow }}
