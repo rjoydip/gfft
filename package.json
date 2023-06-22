@@ -70,15 +70,17 @@
   },
   "simple-git-hooks": {
     "commit-msg": "echo $(cat .git/COMMIT_EDITMSG) | npx commitlint",
-    "pre-commit": "pnpm exec lint-staged --concurrent false"
+    "pre-commit": "pnpm exec lint-staged --concurrent true"
   },
   "lint-staged": {
     "*": [
-      "nr format",
-      "nr markdown:lint"
+      "nr format"
     ],
     "*.[jt]s?(x)": [
       "nr lint:fix"
+    ],
+    "*.md": [
+      "nr markdown:lint"
     ]
   },
   "stackblitz": {
