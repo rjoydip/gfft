@@ -1,29 +1,4 @@
 {
-  "cSpell.words": [
-    "megalinter",
-    "oxsecurity",
-    "antfu",
-    "bumpp",
-    "cliname",
-    "commitlint",
-    "EDITMSG",
-    "endfor",
-    "envinfo",
-    "esno",
-    "execa",
-    "grft",
-    "Joydip",
-    "npmjs",
-    "preinstall",
-    "rjoydip",
-    "stackblitz",
-    "tmpl",
-    "tsup",
-    "typecheck",
-    "unmock",
-    "vite",
-    "vitejs"
-  ],
   "editor.formatOnSave": false,
   "[json]": {
     "editor.formatOnSave": false
