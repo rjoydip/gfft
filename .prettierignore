@@ -2,6 +2,7 @@
 .vscode
 .stackblitz
 .gitignore
+.editorconfig
 .prettierignore
 .markdownlintignore
 dist/

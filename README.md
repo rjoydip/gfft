@@ -40,7 +40,7 @@ Coming soon
 
 ## License
 
-Released under [MIT](/LICENSE) by [@rjoydip](https://github.com/rjoydip).
+Released under [MIT](./LICENSE) by [@rjoydip](https://github.com/rjoydip).
 
 [ci-shield]: https://github.com/rjoydip/grft/actions/workflows/ci.yml/badge.svg
 [ci-url]: https://github.com/rjoydip/grft/actions/workflows/ci.yml
