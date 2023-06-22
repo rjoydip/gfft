@@ -16,7 +16,7 @@ env:
   TYPESCRIPT_DEFAULT_STYLE: prettier
   SPELL_CSPELL_ARGUMENTS: --root /
   REPOSITORY_CHECKOV_ARGUMENTS: -d . --skip-check CKV2_GHA_1
-  YAML_V8R_ARGUMENTS: --ignore-errors pnpm-lock.yaml pnpm-workspace.yaml .github/mergify.yml .github/ISSUE_TEMPLATE/config.yml
+  YAML_V8R_ARGUMENTS: --ignore-errors ./pnpm-lock.yaml ./pnpm-workspace.yaml ./.github/mergify.yml ./.github/ISSUE_TEMPLATE/config.yml
 
 
 concurrency:
