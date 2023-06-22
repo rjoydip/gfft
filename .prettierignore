@@ -1,6 +1,7 @@
 .github
 .vscode
 .stackblitz
+.gitignore
 .prettierignore
 .markdownlintignore
 dist/
@@ -8,10 +9,6 @@ temp/
 fixtures/
 coverage/
 node_modules/
-LICENSE.md
-CHANGELOG.md
-CODE_OF_CONDUCT.md
 package.json
 pnpm-lock.yaml
 pnpm-workspace.yaml
-packages/*/CHANGELOG.md
