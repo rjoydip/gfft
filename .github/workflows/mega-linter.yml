@@ -2,7 +2,6 @@
 name: MegaLinter
 
 on:
-  push: # Comment this line to trigger action only on pull-requests (not recommended if you don't pay for GH Actions)
   pull_request:
     branches: [main]
 
@@ -11,7 +10,6 @@ env:
   APPLY_FIXES_EVENT: pull_request
   APPLY_FIXES_MODE: commit
   DISABLE_LINTERS: COPYPASTE_JSCPD
-  # YAML_V8R_DISABLE_ERRORS: true
   JAVASCRIPT_DEFAULT_STYLE: prettier
   TYPESCRIPT_DEFAULT_STYLE: prettier
   SPELL_CSPELL_ARGUMENTS: --root /
