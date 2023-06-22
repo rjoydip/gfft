@@ -35,7 +35,7 @@
     "test:ui": "vitest -r packages --ui",
     "test:run": "vitest run -r packages",
     "typecheck": "tsc --noEmit",
-    "markdown:lint": "markdown-link-check *.md .github/*.md packages/**/*.md",
+    "markdown:lint": "markdown-link-check *.md .github/*.md packages/*/*.md ",
     "clean": "pnpm -r --parallel --filter='./packages/**' run clean && rimraf .eslintcache coverage",
     "clean:nm": "pnpm -r --parallel --filter='./packages/**' run clean:nm && rimraf packages/node_modules node_modules",
     "all": "nr clean && ni && nu && nr typecheck && nr format && nr lint:fix && nr markdown:lint && nr build && nr test:ci && nr test:coverage"
