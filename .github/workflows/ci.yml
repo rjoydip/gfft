@@ -80,6 +80,9 @@ jobs:
   test:
     runs-on: ${{ matrix.os }}
 
+    permissions:
+      pull-requests: write
+
     timeout-minutes: 30
 
     strategy:

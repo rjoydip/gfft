@@ -20,6 +20,7 @@
     "commitlint",
     "EDITMSG",
     "endfor",
+    "envinfo",
     "esno",
     "execa",
     "grft",
@@ -31,7 +32,9 @@
     "tmpl",
     "tsup",
     "typecheck",
-    "unmock"
+    "unmock",
+    "vite",
+    "vitejs"
   ],
   "version": "0.2"
 }
