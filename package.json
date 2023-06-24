@@ -25,8 +25,6 @@
     "lint:fix": "nr lint --fix",
     "build": "pnpm -r --filter='./packages/**' run build",
     "dev": "NODE_OPTIONS=\"--max-old-space-size=8192\" pnpm -r --parallel --filter='./packages/**' run dev",
-    "publish": "pnpm -r publish --access public",
-    "release": "bumpp package.json packages/**/package.json --commit --push --tag",
     "test": "vitest packages",
     "test:ci": "CI=true nr test:run",
     "test:cli": "pnpm -r --stream run test:cli",
@@ -36,6 +34,8 @@
     "test:run": "vitest run -r packages",
     "typecheck": "tsc --noEmit",
     "markdown:lint": "markdown-link-check *.md .github/*.md packages/*/*.md ",
+    "publish": "pnpm -r publish --access public",
+    "release": "bumpp package.json packages/**/package.json --commit --push --tag",
     "clean": "pnpm -r --parallel --filter='./packages/**' run clean && rimraf .eslintcache coverage",
     "clean:nm": "pnpm -r --parallel --filter='./packages/**' run clean:nm && rimraf packages/node_modules node_modules",
     "all": "nr clean && ni && nu && nr typecheck && nr format && nr lint:fix && nr markdown:lint && nr build && nr test:ci && nr test:coverage"
