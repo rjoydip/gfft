@@ -25,7 +25,7 @@
     "lint:fix": "nr lint --fix",
     "build": "pnpm -r --filter='./packages/**' run build",
     "dev": "NODE_OPTIONS=\"--max-old-space-size=8192\" pnpm -r --parallel --filter='./packages/**' run dev",
-    "test": "vitest packages",
+    "test": "vitest -r packages",
     "test:ci": "CI=true nr test:run",
     "test:cli": "pnpm -r --stream run test:cli",
     "test:coverage": "nr test:run --coverage",
