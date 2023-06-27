@@ -4,31 +4,30 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
-    "clean": "rimraf storybook-static",
+    "clean": "rimraf dist storybook-static",
+    "build": "nr clean && tsup && nr storybook:build",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "storybook:build": "storybook build",
+    "storybook:test": "test-storybook --url http://127.0.0.1:6006 --coverage",
+    "storybook:preview": "vite preview --outDir storybook-static --host 0.0.0.0 --port 6006 --strictPort true",
+    "wait-on-tcp": "wait-on tcp:6006",
+    "test": "",
     "typecheck": "tsc --noEmit"
-  },
-  "dependencies": {
-    "preact": "^10.15.1"
   },
   "devDependencies": {
     "@preact/preset-vite": "^2.5.0",
     "@storybook/addon-actions": "^7.0.23",
+    "@storybook/addon-coverage": "^0.0.8",
     "@storybook/addon-essentials": "^7.0.23",
     "@storybook/addon-interactions": "7.0.23",
     "@storybook/addon-links": "^7.0.23",
     "@storybook/blocks": "7.0.23",
     "@storybook/preact": "^7.0.23",
     "@storybook/preact-vite": "7.0.23",
-    "@storybook/testing-library": "0.0.14-next.2",
+    "@storybook/test-runner": "^0.11.0",
     "@types/react": "^18.2.13",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "preact": "^10.15.1",
     "storybook": "7.0.23",
-    "vite": "^4.3.9"
+    "wait-on": "^7.0.1"
   }
 }
