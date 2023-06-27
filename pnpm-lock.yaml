@@ -12554,6 +12554,7 @@ packages:
   file:packages/core:
     resolution: {directory: packages/core, type: directory}
     name: '@grft/core'
+    version: 0.1.0
     dependencies:
       mustache: 4.2.0
       tiny-glob: 0.2.9

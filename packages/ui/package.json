@@ -4,7 +4,10 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
+    "prepublish": "nr build",
+    "postinstall": "nr build",
     "clean": "rimraf dist coverage storybook-static",
+    "clean:nm": "rimraf node_modules",
     "build": "nr clean && tsup && nr storybook:build",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
