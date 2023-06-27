@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "clean": "rimraf dist storybook-static",
+    "clean": "rimraf dist coverage storybook-static",
     "build": "nr clean && tsup && nr storybook:build",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
@@ -14,10 +14,12 @@
     "test": "",
     "typecheck": "tsc --noEmit"
   },
+  "dependencies": {
+    "preact": "^10.15.1"
+  },
   "devDependencies": {
     "@preact/preset-vite": "^2.5.0",
     "@storybook/addon-actions": "^7.0.23",
-    "@storybook/addon-coverage": "^0.0.8",
     "@storybook/addon-essentials": "^7.0.23",
     "@storybook/addon-interactions": "7.0.23",
     "@storybook/addon-links": "^7.0.23",
@@ -26,7 +28,6 @@
     "@storybook/preact-vite": "7.0.23",
     "@storybook/test-runner": "^0.11.0",
     "@types/react": "^18.2.13",
-    "preact": "^10.15.1",
     "storybook": "7.0.23",
     "wait-on": "^7.0.1"
   }

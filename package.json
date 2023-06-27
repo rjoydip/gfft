@@ -38,7 +38,7 @@
     "release": "bumpp package.json packages/**/package.json --commit --push --tag",
     "clean": "pnpm -r --parallel --filter='./packages/**' run clean && rimraf .eslintcache coverage",
     "clean:nm": "pnpm -r --parallel --filter='./packages/**' run clean:nm && rimraf packages/node_modules node_modules",
-    "all": "nr clean && ni && nu && nr typecheck && nr format && nr lint:fix && nr markdown:lint && nr test:coverage"
+    "all": "nr clean && ni && nr typecheck && nr format && nr lint:fix && nr markdown:lint && nr test:coverage"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.4",
