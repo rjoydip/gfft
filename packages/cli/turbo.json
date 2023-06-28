@@ -2,15 +2,19 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
-      "dependsOn": ["clean"],
+      "dependsOn": ["clean", "^build"],
+      "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
     "test:cli": {
       "dependsOn": ["clean", "build"]
     },
     "test": {
-      "dependsOn": ["test:cli"]
+      "dependsOn": ["test:cli"],
+      "inputs": ["test/**"]
     },
-    "clean": {}
+    "clean": {},
+    "dev": {},
+    "typecheck": {}
   }
 }

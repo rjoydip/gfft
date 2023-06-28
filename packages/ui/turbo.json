@@ -2,12 +2,21 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
-      "dependsOn": ["clean"],
+      "dependsOn": ["clean", "^build"],
+      "inputs": ["src/**"],
       "outputs": ["dist/**", "storybook-static/**"]
     },
     "test": {
-      "dependsOn": ["build"]
+      "dependsOn": ["build"],
+      "inputs": ["test/**"]
     },
-    "clean": {}
+    "storybook:preview": {
+      "dependsOn": ["storybook:build", "wait-on-tcp"]
+    },
+    "storybook": {},
+    "storybook:build": {},
+    "wait-on-tcp": {},
+    "clean": {},
+    "typecheck": {}
   }
 }

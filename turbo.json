@@ -1,33 +1,58 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "globalDependencies": ["tsconfig.base.json"],
   "pipeline": {
     "all": {
-      "dependsOn": ["clean", "build", "typecheck", "format", "lint:fix", "markdown:lint", "test"]
+      "dependsOn": [
+        "clean",
+        "build",
+        "typecheck",
+        "format",
+        "lint:fix",
+        "markdown:lint",
+        "test:ci"
+      ]
     },
     "build": {
-      "dependsOn": ["clean"],
+      "dependsOn": ["clean", "^build"],
+      "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
     "test": {
-      "dependsOn": ["clean", "build", "test:coverage"]
+      "dependsOn": ["build"],
+      "inputs": ["test/**"]
+    },
+    "test:watch": {
+      "dependsOn": ["build"]
+    },
+    "test:ui": {
+      "dependsOn": ["build"]
+    },
+    "test:ci": {
+      "dependsOn": ["build"]
+    },
+    "test:coverage": {
+      "outputs": ["coverage/**"]
+    },
+    "lint": {
+      "dependsOn": ["format", "typecheck"],
+      "cache": false
+    },
+    "lint:fix": {
+      "dependsOn": ["format", "typecheck"],
+      "cache": false
     },
     "clean": {
+      "cache": false
+    },
+    "clean:nm": {
       "cache": false
     },
     "format": {
       "cache": false
     },
-    "lint": {
-      "cache": false
-    },
-    "lint:fix": {
-      "cache": false
-    },
     "markdown:lint": {
       "cache": false
-    },
-    "test:coverage": {
-      "outputs": ["coverage/**"]
     },
     "typecheck": {
       "cache": false

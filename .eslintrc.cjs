@@ -9,6 +9,7 @@ module.exports = defineConfig({
     'plugin:n/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:regexp/recommended',
+    'turbo',
   ],
   ignorePatterns: [],
   plugins: ['import', 'regexp'],

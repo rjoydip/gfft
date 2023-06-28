@@ -2,9 +2,12 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
-      "dependsOn": ["clean"],
+      "dependsOn": ["clean", "^build"],
+      "inputs": ["src/**"],
       "outputs": ["dist/**"]
     },
-    "clean": {}
+    "clean": {},
+    "dev": {},
+    "typecheck": {}
   }
 }

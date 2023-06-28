@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "type": "module",
   "scripts": {
-    "prepublish": "nr build",
+    "postinstall": "nr build",
     "clean": "rimraf dist .turbo coverage storybook-static",
     "clean:nm": "rimraf node_modules",
     "build": "tsup && nr storybook:build",
@@ -13,7 +13,6 @@
     "storybook:test": "test-storybook --url http://127.0.0.1:6006 --coverage",
     "storybook:preview": "vite preview --outDir storybook-static --host 0.0.0.0 --port 6006 --strictPort true",
     "wait-on-tcp": "wait-on tcp:6006",
-    "test": "",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
