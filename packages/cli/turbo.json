@@ -1,0 +1,16 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["clean"],
+      "outputs": ["dist/**"]
+    },
+    "test:cli": {
+      "dependsOn": ["clean", "build"]
+    },
+    "test": {
+      "dependsOn": ["test:cli"]
+    },
+    "clean": {}
+  }
+}

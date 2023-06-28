@@ -1,0 +1,13 @@
+{
+  "extends": ["//"],
+  "pipeline": {
+    "build": {
+      "dependsOn": ["clean"],
+      "outputs": ["dist/**", "storybook-static/**"]
+    },
+    "test": {
+      "dependsOn": ["build"]
+    },
+    "clean": {}
+  }
+}

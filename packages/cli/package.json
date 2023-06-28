@@ -30,13 +30,12 @@
   ],
   "scripts": {
     "prepublish": "nr build",
-    "postinstall": "nr build",
-    "build": "nr clean && tsup",
+    "build": "tsup",
     "dev": "esno ./src/cli.ts -v",
     "clean": "rimraf package-lock.json dist",
     "clean:nm": "rimraf node_modules",
     "typecheck": "tsc --noEmit",
-    "test:cli": "ni && nr build && pnpm link . && npx grft -v && rm -r node_modules/{@grft,.bin/*grft*}"
+    "test:cli": "pnpm link . && npx grft -v && rm -r node_modules/{@grft,.bin/*grft*}"
   },
   "dependencies": {
     "@grft/core": "file:../core",

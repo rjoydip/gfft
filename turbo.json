@@ -1,0 +1,40 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "all": {
+      "dependsOn": ["clean", "build", "typecheck", "format", "lint:fix", "markdown:lint", "test"]
+    },
+    "build": {
+      "dependsOn": ["clean"],
+      "outputs": ["dist/**"]
+    },
+    "test": {
+      "dependsOn": ["clean", "build", "test:coverage"]
+    },
+    "clean": {
+      "cache": false
+    },
+    "format": {
+      "cache": false
+    },
+    "lint": {
+      "cache": false
+    },
+    "lint:fix": {
+      "cache": false
+    },
+    "markdown:lint": {
+      "cache": false
+    },
+    "test:coverage": {
+      "outputs": ["coverage/**"]
+    },
+    "typecheck": {
+      "cache": false
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true
+    }
+  }
+}

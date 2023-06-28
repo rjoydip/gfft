@@ -5,10 +5,9 @@
   "type": "module",
   "scripts": {
     "prepublish": "nr build",
-    "postinstall": "nr build",
-    "clean": "rimraf dist coverage storybook-static",
+    "clean": "rimraf dist .turbo coverage storybook-static",
     "clean:nm": "rimraf node_modules",
-    "build": "nr clean && tsup && nr storybook:build",
+    "build": "tsup && nr storybook:build",
     "storybook": "storybook dev -p 6006",
     "storybook:build": "storybook build",
     "storybook:test": "test-storybook --url http://127.0.0.1:6006 --coverage",
