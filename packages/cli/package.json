@@ -29,16 +29,16 @@
     "*.d.ts"
   ],
   "scripts": {
-    "postinstall": "nr build",
+    "_ni": "ni",
     "build": "tsup",
     "dev": "esno ./src/cli.ts -v",
-    "clean": "rimraf package-lock.json dist .turbo",
+    "clean": "rimraf package-lock.json dist",
     "clean:nm": "rimraf node_modules",
     "typecheck": "tsc --noEmit",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ci": "CI=true vitest",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "nr test --coverage",
     "test:cli": "pnpm link . && npx grft -v && rm -r node_modules/{@grft,.bin/*grft*}"
   },
   "dependencies": {

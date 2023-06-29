@@ -6,54 +6,53 @@
       "dependsOn": [
         "clean",
         "build",
-        "typecheck",
         "format",
+        "typecheck",
         "lint:fix",
         "markdown:lint",
-        "test:ci"
+        "test:ci",
+        "test:cli"
       ]
     },
     "build": {
-      "dependsOn": ["clean", "^build"],
       "inputs": ["src/**"],
-      "outputs": ["dist/**"]
+      "outputs": ["dist/**"],
+      "dependsOn": ["clean", "^build"]
     },
     "test": {
-      "dependsOn": ["build"],
       "inputs": ["test/**"]
     },
-    "test:watch": {
-      "dependsOn": ["build"]
-    },
-    "test:ui": {
-      "dependsOn": ["build"]
-    },
     "test:ci": {
-      "dependsOn": ["build"]
+      "dependsOn": ["_ni"]
     },
     "test:coverage": {
       "outputs": ["coverage/**"]
     },
+    "test:cli": {
+      "dependsOn": ["build", "test:ci"]
+    },
     "lint": {
-      "dependsOn": ["format", "typecheck"],
-      "cache": false
+      "cache": false,
+      "dependsOn": ["format", "typecheck"]
     },
     "lint:fix": {
-      "dependsOn": ["format", "typecheck"],
-      "cache": false
+      "cache": false,
+      "dependsOn": ["format", "typecheck"]
+    },
+    "markdown:lint": {
+      "cache": false,
+      "dependsOn": ["format"]
     },
     "clean": {
       "cache": false
     },
-    "clean:nm": {
+    "setup": {
       "cache": false
     },
     "format": {
       "cache": false
     },
-    "markdown:lint": {
-      "cache": false
-    },
+    "test:watch": {},
     "typecheck": {
       "cache": false
     },

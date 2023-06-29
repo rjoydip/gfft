@@ -112,5 +112,5 @@ jobs:
       - name: Install
         run: pnpm i
 
-      - name: Test Cli
+      - name: Test CLI
         run: pnpm run test:cli

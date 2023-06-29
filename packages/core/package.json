@@ -38,15 +38,15 @@
     "*.d.ts"
   ],
   "scripts": {
-    "postinstall": "nr build",
+    "_ni": "ni",
     "build": "tsup",
-    "clean": "rimraf dist .turbo",
+    "clean": "rimraf dist",
     "clean:nm": "rimraf node_modules",
     "dev": "tsup ./src/index.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:ci": "CI=true vitest",
-    "test:coverage": "vitest run --coverage",
+    "test:coverage": "nr test --coverage",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {

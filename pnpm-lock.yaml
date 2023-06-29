@@ -131,6 +131,9 @@ importers:
       '@storybook/addon-actions':
         specifier: ^7.0.23
         version: 7.0.23(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/addon-coverage':
+        specifier: ^0.0.8
+        version: 0.0.8
       '@storybook/addon-essentials':
         specifier: ^7.0.23
         version: 7.0.23(react-dom@18.2.0)(react@18.2.0)
@@ -158,9 +161,6 @@ importers:
       storybook:
         specifier: 7.0.23
         version: 7.0.23
-      wait-on:
-        specifier: ^7.0.1
-        version: 7.0.1
 
 packages:
 
@@ -3821,6 +3821,17 @@ packages:
       - supports-color
     dev: true
 
+  /@storybook/addon-coverage@0.0.8:
+    resolution: {integrity: sha512-SVcDZhBybHDxFYjMzPqHPypboRJjSn2xJKxIOTIFONfb//Jg2/3uATyyamBPjvoxWRkNIqBpANGm+BpJlWZtog==}
+    dependencies:
+      '@types/babel__core': 7.20.1
+      '@types/istanbul-lib-coverage': 2.0.4
+      babel-plugin-istanbul: 6.1.1
+      vite-plugin-istanbul: 3.0.4
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@storybook/addon-docs@7.0.23(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-BD4F5uCE4VND5Z3UQ9xF+q3qy6MHTxTMgNMVfcBc4TM8gCuFyuuiOl0sxW3Ap6YdWEFfvzE822RGMk5IlD6UWA==}
     peerDependencies:
@@ -5524,15 +5535,6 @@ packages:
     resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
     dependencies:
       follow-redirects: 1.15.2
-    transitivePeerDependencies:
-      - debug
-    dev: true
-
-  /axios@0.27.2:
-    resolution: {integrity: sha512-t+yRIyySRTp/wua5xEr+z1q60QmLq8ABsS5O9Me1AsE5dfKqgnCFzwiCZZ/cGNd1lq4/7akDWMxdhVlucjmnOQ==}
-    dependencies:
-      follow-redirects: 1.15.2
-      form-data: 4.0.0
     transitivePeerDependencies:
       - debug
     dev: true
@@ -7520,15 +7522,6 @@ packages:
 
   /form-data@3.0.1:
     resolution: {integrity: sha512-RHkBKtLWUVwd7SqRIvCZMEvAMoGUp0XU+seQiZejj0COz3RI3hWP4sCv3gZWWLjJTd7rGwcsF5eKZGii0r/hbg==}
-    engines: {node: '>= 6'}
-    dependencies:
-      asynckit: 0.4.0
-      combined-stream: 1.0.8
-      mime-types: 2.1.35
-    dev: true
-
-  /form-data@4.0.0:
-    resolution: {integrity: sha512-ETEklSGi5t0QMZuiXoA/Q6vcnxcLQP5vdugSpuAyi6SVGi2clPPp+xgEhuMaHC+zGgn31Kd235W35f7Hykkaww==}
     engines: {node: '>= 6'}
     dependencies:
       asynckit: 0.4.0
@@ -12145,6 +12138,17 @@ packages:
       - terser
     dev: true
 
+  /vite-plugin-istanbul@3.0.4:
+    resolution: {integrity: sha512-DJy3cq6yOFbsM3gLQf/3zeuaJNJsfBv5dLFdZdv8sUV30xLtZI+66QeYfHUyP/5vBUYyLA+xNUCSG5uHY6w+5g==}
+    dependencies:
+      '@istanbuljs/load-nyc-config': 1.1.0
+      istanbul-lib-instrument: 5.2.1
+      picocolors: 1.0.0
+      test-exclude: 6.0.0
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /vite-tsconfig-paths@4.2.0(typescript@5.1.3)(vite@4.3.9):
     resolution: {integrity: sha512-jGpus0eUy5qbbMVGiTxCL1iB9ZGN6Bd37VGLJU39kTDD6ZfULTTb1bcc5IeTWqWJKiWV5YihCaibeASPiGi8kw==}
     peerDependencies:
@@ -12271,20 +12275,6 @@ packages:
       lodash: 4.17.21
       minimist: 1.2.8
       rxjs: 6.6.7
-    transitivePeerDependencies:
-      - debug
-    dev: true
-
-  /wait-on@7.0.1:
-    resolution: {integrity: sha512-9AnJE9qTjRQOlTZIldAaf/da2eW0eSRSgcqq85mXQja/DW3MriHxkpODDSUEg+Gri/rKEcXUZHe+cevvYItaog==}
-    engines: {node: '>=12.0.0'}
-    hasBin: true
-    dependencies:
-      axios: 0.27.2
-      joi: 17.9.2
-      lodash: 4.17.21
-      minimist: 1.2.8
-      rxjs: 7.8.1
     transitivePeerDependencies:
       - debug
     dev: true
