@@ -21,7 +21,7 @@
     },
     "typecheck": {
       "inputs": ["src/**"],
-      "dependsOn": ["_ni"]
+      "dependsOn": ["build"]
     },
     "_ni": {},
     "clean": {},
