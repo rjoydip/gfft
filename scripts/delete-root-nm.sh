@@ -1,7 +1,6 @@
 #!/bin/bash
 
-if [ -d "node_modules" ]
-then
+if [ -d "node_modules" ]; then
   echo "[WAIT ⌛]: Removing root node_modules directory"
   rm -rf node_modules
   echo "[SUCESS ✅]: Removed root node_modules directory"
