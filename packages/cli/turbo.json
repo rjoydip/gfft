@@ -2,32 +2,20 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
-      "inputs": ["src/**"],
-      "outputs": ["dist/**"],
-      "dependsOn": ["clean", "_ni", "^build"]
-    },
-    "test:cli": {
-      "inputs": ["test/**"],
-      "outputs": ["dist/**"],
-      "dependsOn": ["build"]
-    },
-    "test": {
-      "inputs": ["test/**"],
-      "dependsOn": ["_ni"]
+      "dependsOn": ["^build"]
     },
     "test:ci": {
-      "inputs": ["test/**"],
-      "dependsOn": ["_ni"]
+      "dependsOn": ["build", "_ni"]
+    },
+    "test:cli": {
+      "dependsOn": ["build", "_ni"]
+    },
+    "test:coverage": {
+      "dependsOn": ["build", "_ni"]
     },
     "typecheck": {
-      "inputs": ["src/**"],
-      "dependsOn": ["build"]
+      "dependsOn": ["build", "_ni"]
     },
-    "_ni": {},
-    "clean": {},
-    "clean:nm": {},
-    "dev": {},
-    "test:watch": {},
-    "test:coverage": {}
+    "_ni": {}
   }
 }

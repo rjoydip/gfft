@@ -3,61 +3,37 @@
   "globalDependencies": ["tsconfig.base.json"],
   "pipeline": {
     "all": {
-      "dependsOn": [
-        "clean",
-        "build",
-        "format",
-        "typecheck",
-        "lint:fix",
-        "markdown:lint",
-        "test:ci",
-        "test:cli"
-      ]
+      "dependsOn": ["clean", "build", "typecheck", "test:ci", "test:cli"]
     },
     "build": {
-      "inputs": ["src/**"],
-      "outputs": ["dist/**"],
-      "dependsOn": ["clean", "^build"]
+      "cache": false
+    },
+    "typecheck": {
+      "cache": false
     },
     "test": {
-      "inputs": ["test/**"]
+      "cache": false
     },
     "test:ci": {
-      "dependsOn": ["_ni"]
-    },
-    "test:coverage": {
-      "outputs": ["coverage/**"]
+      "cache": false
     },
     "test:cli": {
-      "dependsOn": ["build", "test:ci"]
+      "cache": false
     },
-    "lint": {
-      "cache": false,
-      "dependsOn": ["format", "typecheck"]
+    "test:coverage": {
+      "cache": false
     },
-    "lint:fix": {
-      "cache": false,
-      "dependsOn": ["format", "typecheck"]
-    },
-    "markdown:lint": {
-      "cache": false,
-      "dependsOn": ["format"]
-    },
-    "clean": {
+    "test:watch": {
       "cache": false
     },
     "setup": {
       "cache": false
     },
-    "format": {
-      "cache": false
-    },
-    "test:watch": {},
-    "typecheck": {
+    "clean": {
       "cache": false
     },
     "dev": {
-      "cache": false,
+      "cache": true,
       "persistent": true
     }
   }

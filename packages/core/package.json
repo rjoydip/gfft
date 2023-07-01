@@ -38,7 +38,6 @@
     "*.d.ts"
   ],
   "scripts": {
-    "_ni": "ni",
     "build": "tsup",
     "clean": "rimraf dist",
     "clean:nm": "rimraf node_modules",

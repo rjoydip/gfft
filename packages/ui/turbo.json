@@ -2,22 +2,11 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
-      "inputs": ["src/**"],
-      "outputs": ["dist/**"],
-      "dependsOn": ["clean", "_ni", "storybook:build"]
+      "dependsOn": ["^build"]
     },
     "storybook:preview": {
       "dependsOn": ["storybook:build"]
     },
-    "storybook": {},
-    "storybook:build": {
-      "outputs": ["storybook-static/**"]
-    },
-    "typecheck": {
-      "dependsOn": ["_ni"]
-    },
-    "_ni": {},
-    "clean": {},
-    "clean:nm": {}
+    "storybook:build": {}
   }
 }

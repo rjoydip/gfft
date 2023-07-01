@@ -96,7 +96,7 @@ module.exports = defineConfig({
   overrides: [
     {
       files: ['packages/**'],
-      excludedFiles: '**/__tests__/**',
+      excludedFiles: '**/test/**',
       rules: {
         'no-restricted-globals': [
           'error',
