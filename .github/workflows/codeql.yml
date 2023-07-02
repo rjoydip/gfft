@@ -13,11 +13,8 @@ name: 'CodeQL'
 
 on:
   push:
-    branches: [master]
+    branches: [main]
   pull_request:
-  merge_group:
-    # The branches below must be a subset of the branches above
-    branches: [master]
 
 jobs:
   analyze:
@@ -31,7 +28,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: ['javascript']
+        language: ['javascript', 'typeScript']
         # CodeQL supports [ 'cpp', 'csharp', 'go', 'java', 'javascript', 'python', 'ruby' ]
         # Learn more about CodeQL language support at https://aka.ms/codeql-docs/language-support
 
