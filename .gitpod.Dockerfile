@@ -4,14 +4,19 @@ COPY .nvmrc /tmp/.nvmrc
 # Copy the package.json file to the Docker image
 COPY package.json /tmp/package.json
 
+RUN mkdir /usr/local/nvm
+ENV NVM_DIR /usr/local/nvm
+
 # Read the Node.js version from the .nvmrc file
-RUN export NODE_VERSION=$(cat /tmp/.nvmrc) \
-  && echo "Installing Node.js version $NODE_VERSION" \
-  && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash \
-  && export NVM_DIR="/root/.nvm" \
-  && . "$NVM_DIR/nvm.sh" \
-  && nvm install $NODE_VERSION \
-  && nvm use $NODE_VERSION
+ENV NODE_VERSION $(cat /tmp/.nvmrc)
+RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
+    && . $NVM_DIR/nvm.sh \
+    && nvm install $NODE_VERSION \
+    && nvm alias default $NODE_VERSION \
+    && nvm use default
+
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
 # Install PNPM
 RUN npm install -g pnpm
