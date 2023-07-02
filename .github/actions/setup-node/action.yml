@@ -1,6 +1,6 @@
 ---
-name: Setup and cache
-description: Setup for node, pnpm and cache for -
+name: GRFT node setup and cache
+description: Setup for node, pnpm and cache configuration
 inputs:
   node-version:
     required: false
@@ -17,6 +17,7 @@ runs:
     - name: Set node version to ${{ inputs.node-version }}
       uses: actions/setup-node@v3
       with:
+        node-version-file: '.nvmrc'
         node-version: ${{ inputs.node-version }}
 
     - name: Resolve package versions
