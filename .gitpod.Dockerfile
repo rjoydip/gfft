@@ -31,3 +31,7 @@ COPY . .
 
 # Install project dependencies
 RUN pnpm install
+
+# Add a HEALTHCHECK instruction
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+  CMD curl -f http://localhost/ || exit 1
