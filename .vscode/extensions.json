@@ -7,6 +7,7 @@
     "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "folke.vscode-monorepo-workspace",
+    "redhat.vscode-yaml",
     "zixuanchen.vitest-explorer",
     "seatonjiang.gitmoji-vscode",
     "streetsidesoftware.code-spell-checker"

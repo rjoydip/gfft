@@ -1,0 +1,20 @@
+image:
+  file: .gitpod.Dockerfile
+
+tasks:
+  - name: Install Dependencies
+    init: pnpm run install
+
+vscode:
+  extensions:
+    - "bierner.markdown-emoji"
+    - "christian-kohler.npm-intellisense"
+    - "dbaeumer.vscode-eslint"
+    - "davidanson.vscode-markdownlint"
+    - "editorconfig.editorconfig"
+    - "esbenp.prettier-vscode"
+    - "folke.vscode-monorepo-workspace"
+    - "redhat.vscode-yaml"
+    - "zixuanchen.vitest-explorer"
+    - "seatonjiang.gitmoji-vscode"
+    - "streetsidesoftware.code-spell-checker"

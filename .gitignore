@@ -6,7 +6,6 @@ yarn-error.log*
 *-lock.json
 lib-cov
 coverage
-!**/integrations/coverage
 node_modules
 .env
 .cache
