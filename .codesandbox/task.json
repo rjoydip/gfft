@@ -1,0 +1,44 @@
+{
+  "$schema": "https://codesandbox.io/schemas/tasks.json",
+  "setupTasks": [
+    {
+      "name": "Install Dependencies",
+      "command": "pnpm run install"
+    }
+  ],
+  "tasks": {
+    "verify-typecheck": {
+      "name": "Verify Typecheck",
+      "command": "pnpm run typecheck",
+      "runAtStart": true
+    },
+    "verify-formatting": {
+      "name": "Verify Formatting",
+      "command": "pnpm run format && pnpm run markdown:lint",
+      "runAtStart": true
+    },
+    "verify-lint": {
+      "name": "Verify Lint",
+      "command": "pnpm run lint",
+      "runAtStart": true
+    },
+    "verify-build": {
+      "name": "Verify Test",
+      "command": "pnpm run build",
+      "runAtStart": true
+    },
+    "verify-test": {
+      "name": "Verify Test",
+      "command": "pnpm run test",
+      "runAtStart": true
+    },
+    "start-storybook": {
+      "name": "Start Storybook",
+      "command": "pnpm run --dir packages/ui storybook",
+      "runAtStart": true,
+      "preview": {
+        "port": 6006
+      }
+    }
+  }
+}
