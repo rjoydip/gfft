@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full:latest
+FROM gitpod/workspace-full:2022-04-11-18-21-27
 
 COPY .nvmrc /tmp/.nvmrc
 # Copy the package.json file to the Docker image
