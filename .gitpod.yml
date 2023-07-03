@@ -3,7 +3,7 @@ image:
 
 tasks:
   - name: Install Dependencies
-    init: pnpm run install
+    init: pnpm install
 
 vscode:
   extensions:
