@@ -1,21 +1,15 @@
 FROM gitpod/workspace-full:2022-04-11-18-21-27
 
-SHELL ["/bin/bash", "--login", "-c"]
-
-# Copy .nvmrc and package.json files
+# Copy .nvmrc files
 COPY .nvmrc /tmp/.nvmrc
-COPY package.json /tmp/package.json
 
 # Set environment variables
 ENV NVM_DIR $HOME/nvm
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
-
-# Switch to non-root user 'gitpod'
-USER gitpod
+RUN mkdir -p $NVM_DIR
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
+SHELL ["/bin/bash", "--login", "-c"]
 # Install Node.js and PNPM
 RUN source "$HOME/.nvm/nvm.sh" \
   && export NVM_DIR="$HOME/.nvm" \
@@ -25,12 +19,6 @@ RUN source "$HOME/.nvm/nvm.sh" \
   && nvm install "$VERSION" \
   && nvm use "$VERSION" \
   && npm install -g pnpm@latest
-
-# Set up the workspace
-RUN mkdir -p /home/gitpod/.npm-global/bin \
-  && echo 'export PATH="/home/gitpod/.npm-global/bin:$PATH"' >> /home/gitpod/.bashrc
-
-ENV PATH="/home/gitpod/.npm-global/bin:${PATH}"
 
 # Set up the project
 WORKDIR /workspace
