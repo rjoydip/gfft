@@ -8,6 +8,7 @@ COPY package.json /tmp/package.json
 
 # Create the /usr/local/nvm directory
 RUN mkdir -p /usr/local/nvm && chown -R gitpod:gitpod /usr/local/nvm
+ENV NVM_DIR /usr/local/nvm
 
 USER gitpod
 
