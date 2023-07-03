@@ -10,10 +10,11 @@ COPY package.json /tmp/package.json
 RUN mkdir -p /usr/local/nvm && chown -R gitpod:gitpod /usr/local/nvm
 ENV NVM_DIR /usr/local/nvm
 
+USER gitpod
+
+SHELL ["/bin/bash", "--login", "-c"]
 # Read the Node.js version from the .nvmrc file
 ENV NODE_VERSION $(cat /tmp/.nvmrc)
-
-USER gitpod
 
 RUN curl https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash \
     && . $NVM_DIR/nvm.sh \
