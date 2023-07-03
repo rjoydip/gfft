@@ -11,18 +11,24 @@ COPY .nvmrc /tmp/.nvmrc
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 # [Optional] Uncomment this section to install additional OS packages.
-RUN apt get update && apt get -y install --no-install-recommends curl \
-  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+RUN apt-get update && \
+  apt-get install -y --no-install-recommends \
+    curl \
+    bash && \
+  rm -rf /var/lib/apt/lists/*
 
-# Delete apt-get lists and other temporary files
-RUN rm -rf /var/lib/apt/lists/*
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
 # [Optional] Uncomment if you want to install an additional version of node using nvm
-RUN source "$HOME/.nvm/nvm.sh" && \
-  export NVM_DIR="$HOME/.nvm" && \
-  [ -s "$NVM_DIR/nvm.sh" ] && \
-  . "$NVM_DIR/nvm.sh" && \
-  export VERSION="$(cat /tmp/.nvmrc)" && \
-  nvm install "$VERSION" && \
-  nvm use "$VERSION" && \
-  npm install -g pnpm@latest
+RUN source "$HOME/.nvm/nvm.sh" \
+    && export NVM_DIR="$HOME/.nvm" \
+    && [ -s "$NVM_DIR/nvm.sh" ] \
+    && . "$NVM_DIR/nvm.sh" \
+    && VERSION="$(cat /tmp/.nvmrc)" \
+    && nvm install "$VERSION" \
+    && nvm use "$VERSION" \
+    && npm install -g pnpm@latest
+
+# Add a HEALTHCHECK instruction
+HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
+  CMD curl -f http://localhost/ || exit 1
