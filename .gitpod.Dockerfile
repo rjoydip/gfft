@@ -14,15 +14,17 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 # Switch to non-root user 'gitpod'
 USER gitpod
 
+RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+
 # Install Node.js and PNPM
-RUN source "$HOME/.nvm/nvm.sh" && \
-  export NVM_DIR="$HOME/.nvm" && \
-  [ -s "$NVM_DIR/nvm.sh" ] && \
-  . "$NVM_DIR/nvm.sh" && \
-  export VERSION="$(cat /tmp/.nvmrc)" && \
-  nvm install "$VERSION" && \
-  nvm use "$VERSION" && \
-  npm install -g pnpm
+RUN source "$HOME/.nvm/nvm.sh" \
+  && export NVM_DIR="$HOME/.nvm" \
+  && [ -s "$NVM_DIR/nvm.sh" ] \
+  && . "$NVM_DIR/nvm.sh" \
+  && VERSION="$(cat /tmp/.nvmrc)" \
+  && nvm install "$VERSION" \
+  && nvm use "$VERSION" \
+  && npm install -g pnpm@latest
 
 # Set up the workspace
 RUN mkdir -p /home/gitpod/.npm-global/bin \

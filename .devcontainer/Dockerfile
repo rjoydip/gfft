@@ -19,7 +19,7 @@ RUN apt-get update && \
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-# [Optional] Uncomment if you want to install an additional version of node using nvm
+# Install Node.js and PNPM
 RUN source "$HOME/.nvm/nvm.sh" \
     && export NVM_DIR="$HOME/.nvm" \
     && [ -s "$NVM_DIR/nvm.sh" ] \
