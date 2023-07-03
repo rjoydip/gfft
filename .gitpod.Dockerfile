@@ -1,5 +1,7 @@
 FROM gitpod/workspace-full:2022-04-11-18-21-27
 
+SHELL ["/bin/bash", "--login", "-c"]
+
 # Copy .nvmrc and package.json files
 COPY .nvmrc /tmp/.nvmrc
 COPY package.json /tmp/package.json
@@ -13,14 +15,14 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 USER gitpod
 
 # Install Node.js and PNPM
-SHELL ["/bin/bash", "--login", "-c"]
-RUN source ~/.nvm/nvm.sh && \
-    export NVM_DIR="$HOME/.nvm" && \
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
-    export VERSION=$(cat /tmp/.nvmrc) && \
-    nvm install $VERSION && \
-    nvm use $VERSION && \
-    npm install -g pnpm
+RUN source "$HOME/.nvm/nvm.sh" && \
+  export NVM_DIR="$HOME/.nvm" && \
+  [ -s "$NVM_DIR/nvm.sh" ] && \
+  . "$NVM_DIR/nvm.sh" && \
+  export VERSION="$(cat /tmp/.nvmrc)" && \
+  nvm install "$VERSION" && \
+  nvm use "$VERSION" && \
+  npm install -g pnpm
 
 # Set up the workspace
 RUN mkdir -p /home/gitpod/.npm-global/bin \

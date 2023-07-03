@@ -2,21 +2,27 @@
 ARG VARIANT=16-bullseye
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 
+USER nonroot
+
 # Copy .nvmrc and package.json files
 COPY .nvmrc /tmp/.nvmrc
 
+# Set the SHELL option
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
+
 # [Optional] Uncomment this section to install additional OS packages.
-RUN apt-get update && apt-get -y install curl \
+RUN apt get update && apt get -y install --no-install-recommends curl \
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-# [Optional] Uncomment if you want to install an additional version of node using nvm
-RUN source ~/.nvm/nvm.sh && \
-  export NVM_DIR="$HOME/.nvm" && \
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" && \
-  export VERSION=$(cat /tmp/.nvmrc) && \
-  nvm install $VERSION && \
-  nvm use $VERSION && \
-  npm install -g pnpm
+# Delete apt-get lists and other temporary files
+RUN rm -rf /var/lib/apt/lists/*
 
-# [Optional] Uncomment if you want to install more global node modules
-RUN su node -c "npm install -g pnpm@7.27.0"
+# [Optional] Uncomment if you want to install an additional version of node using nvm
+RUN source "$HOME/.nvm/nvm.sh" && \
+  export NVM_DIR="$HOME/.nvm" && \
+  [ -s "$NVM_DIR/nvm.sh" ] && \
+  . "$NVM_DIR/nvm.sh" && \
+  export VERSION="$(cat /tmp/.nvmrc)" && \
+  nvm install "$VERSION" && \
+  nvm use "$VERSION" && \
+  npm install -g pnpm@latest
