@@ -1,11 +1,18 @@
 FROM gitpod/workspace-full:2022-04-11-18-21-27
 
+# Copy .nvmrc and package.json files
 COPY .nvmrc /tmp/.nvmrc
-# Copy the package.json file to the Docker image
 COPY package.json /tmp/package.json
 
+# Set environment variables
 ENV NVM_DIR $HOME/nvm
+ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
+ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 
+# Switch to non-root user 'gitpod'
+USER gitpod
+
+# Install Node.js and PNPM
 SHELL ["/bin/bash", "--login", "-c"]
 RUN source ~/.nvm/nvm.sh && \
     export NVM_DIR="$HOME/.nvm" && \
@@ -14,12 +21,6 @@ RUN source ~/.nvm/nvm.sh && \
     nvm install $VERSION && \
     nvm use $VERSION && \
     npm install -g pnpm
-
-ENV NODE_PATH $NVM_DIR/v$NODE_VERSION/lib/node_modules
-ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
-
-# Install PNPM
-RUN npm install -g pnpm
 
 # Set up the workspace
 RUN mkdir -p /home/gitpod/.npm-global/bin \
@@ -32,6 +33,9 @@ WORKDIR /workspace
 
 # Copy your project files
 COPY . .
+
+# Set the npm config to global location
+RUN npm config set --location=global
 
 # Install project dependencies
 RUN pnpm install
