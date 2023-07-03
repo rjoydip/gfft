@@ -20,14 +20,16 @@ RUN apt-get update && \
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
 # Install Node.js and PNPM
+COPY nvm.sh "$HOME/.nvm/nvm.sh"
+
 RUN source "$HOME/.nvm/nvm.sh" \
-    && export NVM_DIR="$HOME/.nvm" \
-    && [ -s "$NVM_DIR/nvm.sh" ] \
-    && . "$NVM_DIR/nvm.sh" \
-    && VERSION="$(cat /tmp/.nvmrc)" \
-    && nvm install "$VERSION" \
-    && nvm use "$VERSION" \
-    && npm install -g pnpm@latest
+  && export NVM_DIR="$HOME/.nvm" \
+  && [ -s "$NVM_DIR/nvm.sh" ] \
+  && . "$NVM_DIR/nvm.sh" \
+  && VERSION="$(cat /tmp/.nvmrc)" \
+  && nvm install "$VERSION" \
+  && nvm use "$VERSION" \
+  && npm install -g pnpm@latest
 
 # Add a HEALTHCHECK instruction
 HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
