@@ -13,8 +13,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # [Optional] Uncomment this section to install additional OS packages.
 RUN apt-get update && \
   apt-get install -y --no-install-recommends \
-    curl \
-    bash && \
+    curl=7.74.0-1ubuntu2.3 \
+    bash=5.1-2ubuntu2.1 && \
   rm -rf /var/lib/apt/lists/*
 
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
