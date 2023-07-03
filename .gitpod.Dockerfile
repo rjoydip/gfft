@@ -1,14 +1,10 @@
 FROM gitpod/workspace-full:2022-04-11-18-21-27
 
-USER root
-
 COPY .nvmrc /tmp/.nvmrc
 # Copy the package.json file to the Docker image
 COPY package.json /tmp/package.json
 
-# Create the /usr/local/nvm directory
-RUN mkdir -p /usr/local/nvm && chown -R gitpod:gitpod /usr/local/nvm
-ENV NVM_DIR /usr/local/nvm
+ENV NVM_DIR $HOME/nvm
 
 SHELL ["/bin/bash", "--login", "-c"]
 RUN source ~/.nvm/nvm.sh && \
