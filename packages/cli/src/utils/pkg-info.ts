@@ -1,9 +1,10 @@
-import { createRequire } from 'node:module'
+import { readPackageUp } from 'read-pkg-up'
 
-const require = createRequire(import.meta.url)
-const pkg = require('../../package.json')
-
-export default {
-  name: pkg.cliname,
-  version: pkg.version,
+export default async () => {
+  const pkg = await readPackageUp()
+  return {
+    name: pkg?.packageJson.cliname || '',
+    version: pkg?.packageJson.version || '0.0.0',
+    path: pkg?.path || '',
+  }
 }

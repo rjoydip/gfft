@@ -26,9 +26,10 @@
     "./*": "./*"
   },
   "bin": {
-    "grft": "bin.mjs"
+    "grft": "grft.mjs"
   },
   "files": [
+    "grft.mjs",
     "*.d.ts"
   ],
   "scripts": {
@@ -44,7 +45,8 @@
     "test:cli": "pnpm link . && pnpm grft -v"
   },
   "dependencies": {
-    "@grft/core": "workspace:core",
+    "@grft/core": "workspace:*",
+    "read-pkg-up": "^9.1.0",
     "sade": "^1.8.1",
     "serialize-error": "^11.0.0"
   },

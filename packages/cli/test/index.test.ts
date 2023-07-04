@@ -23,8 +23,9 @@ describe('Cli', async () => {
   })
 
   test('Version', async () => {
+    const pkg = await pkgInfo()
     const result = await $`esno ${cliFilePath} generate -v`
-    expect(result.stdout).toStrictEqual(`${pkgInfo.name}, ${pkgInfo.version}`)
+    expect(result.stdout).toStrictEqual(`${pkg.name}, ${pkg.version}`)
   })
 
   test('Without command', async () => {
