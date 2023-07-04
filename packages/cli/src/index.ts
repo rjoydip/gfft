@@ -1,14 +1,15 @@
-import { createRequire } from 'node:module'
 import sade from 'sade'
 import { serializeError } from 'serialize-error'
 import { generateReport } from '@grft/core'
-const require = createRequire(import.meta.url)
-const pkg = require('../package.json')
+import pkgInfo from './utils/pkg-info'
 
-const prog = sade(pkg.cliname)
+process.on('unhandledRejection', (reason, _) => {
+  console.error(reason)
+  process.exit(1)
+})
 
-prog.version(pkg.version)
-
+const prog = sade(pkgInfo.name)
+prog.version(pkgInfo.version)
 prog
   .command('generate')
   .describe('Generate reports')
