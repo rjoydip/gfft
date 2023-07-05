@@ -1,5 +1,6 @@
 /// <reference types='vitest' />
 
+import { resolve } from 'node:path'
 import { defineConfig } from 'vitest/config'
 import tsconfigPaths from 'vite-tsconfig-paths'
 
@@ -9,7 +10,7 @@ export default defineConfig({
     coverage: {
       provider: 'v8',
       reporter: ['text', 'json', 'json-summary', 'html'],
-      reportsDirectory: 'coverage',
+      reportsDirectory: resolve(__dirname, 'coverage'),
     },
   },
   plugins: [tsconfigPaths()],
