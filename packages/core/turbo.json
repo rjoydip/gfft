@@ -2,7 +2,7 @@
   "extends": ["//"],
   "pipeline": {
     "build": {
-      "dependsOn": ["_ni", "^build"]
+      "dependsOn": ["^build"]
     },
     "_ni": {}
   }

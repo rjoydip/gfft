@@ -84,7 +84,7 @@ jobs:
 
       - name: Test
         run: |
-          pnpm run test:coverage
+          pnpm run coverage
 
       - name: Codecov
         uses: codecov/codecov-action@v3

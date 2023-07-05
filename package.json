@@ -1,7 +1,7 @@
 {
   "name": "grft",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "private": true,
   "packageManager": "pnpm@8.6.6",
   "description": "Generate readme file from template file",
@@ -22,13 +22,13 @@
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks",
-    "dev": "turbo run dev",
     "build": "turbo run build",
-    "test": "turbo run test",
-    "test:ci": "turbo run test:ci",
+    "dev": "turbo run dev",
     "test:cli": "turbo run test:cli",
-    "test:watch": "turbo run test:watch",
-    "test:coverage": "turbo run test:coverage",
+    "test": "vitest run  -r packages",
+    "test:ci": "CI=true nr test",
+    "test:watch": "nr test --watch",
+    "coverage": "nr test --coverage",
     "typecheck": "turbo run typecheck",
     "format": "prettier --write --cache .",
     "lint": "eslint --cache .",
@@ -36,7 +36,7 @@
     "deps:fresh": "taze -r -w -i",
     "markdown:lint": "markdown-link-check *.md .github/*.md packages/*/*.md",
     "clean": "turbo run clean && rimraf .eslintcache coverage && scripts/delete-root-nm.sh",
-    "all": "turbo run all && nr format && nr lint:fix && nr markdown:lint && nr deps:fresh"
+    "all": "turbo run all && nr format && nr lint:fix && nr markdown:lint && nr coverage && nr deps:fresh"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.4",
