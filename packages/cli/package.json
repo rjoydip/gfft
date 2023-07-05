@@ -37,6 +37,7 @@
     "build": "tsup",
     "dev": "esno ./src/index.ts -v",
     "clean": "rimraf package-lock.json dist node_modules",
+    "pretypecheck": "nr build && ni",
     "typecheck": "tsc --noEmit",
     "test:cli": "pnpm link . && pnpm grft -v"
   },

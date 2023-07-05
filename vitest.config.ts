@@ -8,6 +8,7 @@ export default defineConfig({
   test: {
     testTimeout: 10000,
     coverage: {
+      enabled: true,
       provider: 'v8',
       reporter: ['text', 'json', 'json-summary', 'html'],
       reportsDirectory: resolve(__dirname, 'coverage'),
