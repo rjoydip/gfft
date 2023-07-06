@@ -1,9 +1,9 @@
 #!/bin/bash
 
 cleanDir() {
-  if [ -d $1 ]; then
+  if [ -d "$1" ]; then
     echo "[ WAITING⌛ ]: Removing $1"
-    rm -rf $1
+    rm -rf "$1"
     echo ""
     echo "[ SUCESS ✅ ]: Removed $1"
   else
@@ -12,9 +12,11 @@ cleanDir() {
 }
 
 cleanNestedDir() {
-  if [ -d $1 ]; then
+  if [ -d "$1" ]; then
     echo "[ WAITING⌛ ]: Removing $1/**/$2"
-    rm -rf $1/**/$2
+    args1=$1
+    args2=$2
+    rm -rf "${args1:?}"/**/"${args2:?}"
     echo ""
     echo "[ SUCESS ✅ ]: Removed $1/**/$2"
   else
@@ -23,9 +25,9 @@ cleanNestedDir() {
 }
 
 cleanFile() {
-  if [ -f $1 ]; then
+  if [ -f "$1" ]; then
     echo "[ WAITING⌛ ]: Removing $1"
-    rm -rf $1
+    rm -rf "$1"
     echo ""
     echo "[ SUCESS ✅ ]: Removed $1"
   else
@@ -44,12 +46,12 @@ cleaCoverage() {
 }
 
 cleaDist() {
-  if [ -d $1 ]; then
+  if [ -d "$1" ]; then
     echo ""
-    cleanNestedDir $1 dist
+    cleanNestedDir "$1" dist
   else
     echo ""
-    cleanDir $1
+    cleanDir "$1"
   fi
 }
 
@@ -67,10 +69,11 @@ cleanRootNM() {
 
 cleanNestedNM() {
   echo ""
-  if [ -d $1 ]; then
+  if [ -d "$1" ]; then
     if [ -d "node_modules" ]; then
       echo "[ WAITING⌛ ]: Removing $1/**/node_modules"
-      rm -rf $1/**/node_modules
+      args1=$1
+      rm -rf "${args1:?}"/**/node_modules
       echo ""
       echo "[ SUCESS ✅ ]: Removed $1/**/node_modules"
     else
@@ -95,31 +98,30 @@ for arg in "$@"; do
   fi
 
   case $arg in
-    -h|--help)
-      echo "Help documentation:"
-      echo "-h, --help: Display help information."
-      echo "-v, --version: Display script version."
-      echo "-c, --clean [name]: Clean unnecessery files."
-      echo "-cnm, --clean-nm : Clean node_modules files."
-      ;;
-    -v|--version)
-      echo "GRFT commander version 1.0"
-      ;;
-    -c|--clean)
-      cleaDist
-      cleaDist packages
-      cleaCoverage
-      cleaEslintCache
-      shift # Skip the next argument
-      ;;
-    -cnm|--clean-nm)
-      cleanRootNM
-      cleanNestedNM packages
-      shift # Skip the next argument
-      ;;
-    *)
-      echo "Unknown argument: $arg"
-      ;;
+  -h | --help)
+    echo "Help documentation:"
+    echo "-h, --help: Display help information."
+    echo "-v, --version: Display script version."
+    echo "-c, --clean [name]: Clean unnecessery files."
+    echo "-cnm, --clean-nm : Clean node_modules files."
+    ;;
+  -v | --version)
+    echo "GRFT commander version 1.0"
+    ;;
+  -c | --clean)
+    cleaDist
+    cleaDist packages
+    cleaCoverage
+    cleaEslintCache
+    shift # Skip the next argument
+    ;;
+  -cnm | --clean-nm)
+    cleanRootNM
+    cleanNestedNM packages
+    shift # Skip the next argument
+    ;;
+  *)
+    echo "Unknown argument: $arg"
+    ;;
   esac
 done
-
