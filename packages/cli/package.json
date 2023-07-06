@@ -36,9 +36,9 @@
     "_ni": "ni",
     "build": "tsup",
     "dev": "esno ./src/index.ts -v",
-    "clean": "rimraf package-lock.json dist node_modules",
-    "typecheck": "tsc --noEmit",
-    "test:cli": "pnpm link . && pnpm grft -v"
+    "typecheck": "nr build && ni && tsc --noEmit",
+    "test:cli": "pnpm link . && pnpm grft -v",
+    "clean": "rimraf package-lock.json dist node_modules"
   },
   "dependencies": {
     "@grft/core": "workspace:*",
