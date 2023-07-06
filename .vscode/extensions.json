@@ -9,6 +9,7 @@
     "esbenp.prettier-vscode",
     "folke.vscode-monorepo-workspace",
     "ms-vscode-remote.remote-containers",
+    "foxundermoon.shell-format",
     "redhat.vscode-yaml",
     "zixuanchen.vitest-explorer",
     "seatonjiang.gitmoji-vscode",

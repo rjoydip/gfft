@@ -1,12 +1,21 @@
 import { join } from 'node:path'
 import { randomUUID } from 'node:crypto'
 import { $ } from 'execa'
+import { findMonorepoRoot } from 'find-monorepo-root'
 import { serializeError } from 'serialize-error'
 import { afterAll, beforeAll, beforeEach, describe, expect, test } from 'vitest'
 
 describe('Cli', async () => {
   let output_dir: string
-  const fixturesPath = join(process.cwd(), '..', '..', 'fixtures')
+  const rootDir = (await findMonorepoRoot(process.cwd())).dir
+  const fixturesPath = join(rootDir, 'fixtures')
+  const cliFilePath: string = join(
+    rootDir,
+    'packages',
+    'cli',
+    'src',
+    'index.ts',
+  )
 
   beforeAll(async () => {
     await $`rm -rf ${join(fixturesPath, 'output', '*')}`
@@ -20,14 +29,14 @@ describe('Cli', async () => {
     await $`rm -rf ${join(fixturesPath, 'output', '*')}`
   })
 
-  test('Cli version', async () => {
-    const result = await $`esno src/cli.ts generate -v`
-    expect(result.stdout).toStrictEqual('grft, 0.1.0')
+  test('Version', async () => {
+    const result = await $`esno ${cliFilePath} generate -v`
+    expect(result.stdout).toStrictEqual(`GRFT, 0.1.0`)
   })
 
   test('Without command', async () => {
     try {
-      const result = await $`esno src/cli.ts`
+      const result = await $`esno ${cliFilePath}`
       expect(result.failed).toBeTruthy()
     } catch (err) {
       const error = new Error(String(err))
@@ -38,20 +47,21 @@ describe('Cli', async () => {
   })
 
   test('Without options', async () => {
-    const result = await $`esno src/cli.ts generate`
+    const result = await $`esno ${cliFilePath} generate`
     expect(result.stderr).toStrictEqual('Error: No options specified')
   })
 
   test('Data directory missing', async () => {
-    const result = await $`esno src/cli.ts generate -o ${output_dir} -t ${join(
-      fixturesPath,
-      'template',
-    )}`
+    const result =
+      await $`esno ${cliFilePath} generate -o ${output_dir} -t ${join(
+        fixturesPath,
+        'template',
+      )}`
     expect(result.stderr).toStrictEqual('Error: Data directory not exists')
   })
 
   test('Template directory missing', async () => {
-    const result = await $`esno src/cli.ts generate -d ${join(
+    const result = await $`esno ${cliFilePath} generate -d ${join(
       fixturesPath,
       'data',
     )} -o ${output_dir}`
@@ -59,7 +69,7 @@ describe('Cli', async () => {
   })
 
   test('Missing output directory > Automatically create', async () => {
-    const result = await $`esno src/cli.ts generate -d ${join(
+    const result = await $`esno ${cliFilePath} generate -d ${join(
       fixturesPath,
       'data',
     )} -t ${join(fixturesPath, 'template')}`
@@ -67,7 +77,7 @@ describe('Cli', async () => {
   })
 
   test('Generate report', async () => {
-    const result = await $`esno src/cli.ts generate -d ${join(
+    const result = await $`esno ${cliFilePath} generate -d ${join(
       fixturesPath,
       'data',
     )} -o ${output_dir} -t ${join(fixturesPath, 'template')}`
