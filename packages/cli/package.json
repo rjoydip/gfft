@@ -33,12 +33,11 @@
     "*.d.ts"
   ],
   "scripts": {
-    "_ni": "ni",
     "build": "tsup",
     "dev": "esno ./src/index.ts -v",
-    "typecheck": "nr build && ni && tsc --noEmit",
     "test:cli": "pnpm link . && pnpm grft -v",
-    "clean": "rimraf package-lock.json dist node_modules"
+    "build:core": "pnpm --filter core run build",
+    "typecheck": "nr build:core && ni && nr build && tsc --noEmit"
   },
   "dependencies": {
     "@grft/core": "workspace:*",
