@@ -2,8 +2,6 @@
 ARG VARIANT=16-bullseye
 FROM mcr.microsoft.com/vscode/devcontainers/javascript-node:0-${VARIANT}
 
-USER nonroot
-
 # Copy .nvmrc and package.json files
 COPY .nvmrc /tmp/.nvmrc
 
@@ -30,6 +28,10 @@ RUN source "$HOME/.nvm/nvm.sh" \
   && nvm install "$VERSION" \
   && nvm use "$VERSION" \
   && npm install -g pnpm@latest
+
+WORKDIR /workspace
+
+COPY . .
 
 # Add a HEALTHCHECK instruction
 HEALTHCHECK --interval=30s --timeout=5s --retries=3 \
