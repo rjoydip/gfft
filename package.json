@@ -37,8 +37,8 @@
     "test:watch": "nr build && nr test --watch",
     "test:cli": "nr build && ni && pnpm -r --filter='./packages/cli' run test:cli",
     "lint:md": "node scripts/markdownlint.js $(glob '{*.md,{.github,packages,fixtures}/**/*.md}' -i '**/node_modules/**')",
-    "clean": "chmod +x ./scripts/cleaner.sh && ./scripts/cleaner.sh --clean",
-    "clean:nm": "chmod +x ./scripts/cleaner.sh && ./scripts/cleaner.sh --clean-nm",
+    "clean": "node scripts/commander.js clean",
+    "clean:nm": "node scripts/commander.js clean -nm",
     "all": "nr clean && nr deps:fresh && nr format && nr lint && nr lint:md && nr test:ci && nr test:cli"
   },
   "devDependencies": {
@@ -76,8 +76,7 @@
     "typescript": "^5.1.6",
     "vite": "^4.4.3",
     "vite-tsconfig-paths": "^4.2.0",
-    "vitest": "^0.33.0",
-    "zx": "^7.2.3"
+    "vitest": "^0.33.0"
   },
   "simple-git-hooks": {
     "commit-msg": "echo $(cat .git/COMMIT_EDITMSG) | npx commitlint",
