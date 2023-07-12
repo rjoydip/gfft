@@ -84,13 +84,16 @@
   },
   "lint-staged": {
     "*": [
-      "nr format"
+      "nr format",
+      "git add ."
     ],
     "packages/**/*.{js,ts,jsx,tsx,json}": [
-      "nr lint"
+      "nr lint",
+      "git add ."
     ],
     "*.{md,mdx}": [
-      "nr lint:md"
+      "nr lint:md",
+      "git add ."
     ]
   },
   "stackblitz": {
