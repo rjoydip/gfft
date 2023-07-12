@@ -21,7 +21,7 @@ env:
   JSON_V8R_FILTER_REGEX_EXCLUDE: ^(\.\/)?([\w\-\.]+\/)*[\w\-\.]+\.json$
   YAML_V8R_FILTER_REGEX_EXCLUDE: ^(\.\/)?([\w\-\.]+\/)*[\w\-\.]+\.ya?ml$
   DOCKERFILE_HADOLINT_ARGUMENTS: --ignore SC1091
-  REPOSITORY_TRIVY_ARGUMENTS: --skip-dirs node_modules --skip-files ".gitpod.Dockerfile"
+  REPOSITORY_TRIVY_ARGUMENTS: --skip-dirs node_modules --skip-files ".gitpod.Dockerfile" --skip-files ".devcontainer/Dockerfile"
 
 
 concurrency:
