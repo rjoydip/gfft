@@ -17,11 +17,14 @@
 [![codecov][codecov-image]][codecov-url]
 [![PRs Welcome][pr-welcome-image]][pr-welcome-url]
 [![djlint-image][djlint-image]][djlint-url]
+[![Conventional Commits][conventional-commits-image]][conventional-commits-url]
 [![MegaLinter][megalinter-image]][megalinter-url]
 [![Gitpod Ready-to-Code][gitpod-image]][gitpod-url]
 [![Node Version][node-image]][node-url]
 [![Typescript][typescript-image]][typescript-url]
-[![Static Badge][pnpm-image]][pnpm-url]
+[![PNPM][pnpm-image]][pnpm-url]
+[![Open in Dev Containers][devcontainer-image]][devcontainer-url]
+[![VS Code Container][vscode-container-image]][vscode-container-url]
 
 </div>
 
@@ -72,3 +75,9 @@ Released under [MIT](./LICENSE) by [@rjoydip](https://github.com/rjoydip).
 [typescript-url]: https://www.typescriptlang.org
 [pnpm-image]: https://img.shields.io/badge/pnpm-latest-orange
 [pnpm-url]: https://pnpm.io
+[devcontainer-image]: https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode
+[devcontainer-url]: https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/microsoft/vscode-remote-try-node
+[conventional-commits-image]: https://img.shields.io/badge/Conventional%20Commits-17.6.6-%23FE5196?logo=conventionalcommits&logoColor=white
+[conventional-commits-url]: https://conventionalcommits.org
+[vscode-container-image]: https://img.shields.io/static/v1?label=VS+Code&message=Container&logo=visualstudiocode&color=007ACC&logoColor=007ACC&labelColor=2C2C32
+[vscode-container-url]: https://open.vscode.dev/microsoft/vscode
