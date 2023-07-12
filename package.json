@@ -1,10 +1,10 @@
 {
-  "name": "grft",
+  "name": "gfft",
   "type": "module",
   "version": "0.0.0",
   "private": true,
-  "packageManager": "pnpm@8.6.6",
-  "description": "Generate readme file from template file",
+  "packageManager": "pnpm@8.6.7",
+  "description": "Generate file from template file",
   "license": "MIT",
   "sideEffects": true,
   "workspaces": [
@@ -15,7 +15,7 @@
     "email": "joydipand@gmail.com",
     "url": "https://github.com/rjoydip"
   },
-  "repository": "rjoydip/grft",
+  "repository": "rjoydip/gfft",
   "engines": {
     "node": ">=16",
     "npm": ">=8",
@@ -26,8 +26,8 @@
     "pretest": "nr build",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks",
-    "lint": "eslint --cache .",
-    "lint:fix": "nr lint --fix",
+    "release": "release-it --ci",
+    "lint": "eslint --cache --fix .",
     "deps:fresh": "taze -r -w -i",
     "format": "prettier --write --cache .",
     "build": "pnpm -r --filter='./packages/**' run build",
@@ -35,22 +35,23 @@
     "test": "vitest run -r packages",
     "test:ci": "nr build && CI=true nr test",
     "test:watch": "nr build && nr test --watch",
-    "typecheck": "pnpm -r --filter='./packages/**' run typecheck",
     "test:cli": "nr build && ni && pnpm -r --filter='./packages/cli' run test:cli",
     "markdown:lint": "markdown-link-check *.md .github/*.md packages/*/*.md",
-    "clean": "./scripts/commander.sh --clean",
-    "clean:nm": "./scripts/commander.sh --clean-nm",
-    "all": "nr clean && nr deps:fresh && nr format && nr lint:fix && nr markdown:lint && nr test:ci && nr test:cli && nr typecheck"
+    "clean": "chmod +x ./scripts/cleaner.sh && ./scripts/cleaner.sh --clean",
+    "clean:nm": "chmod +x ./scripts/cleaner.sh && ./scripts/cleaner.sh --clean-nm",
+    "all": "nr clean && nr deps:fresh && nr format && nr lint && nr markdown:lint && nr test:ci && nr test:cli"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.4",
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
-    "@types/node": "^20.3.3",
-    "@typescript-eslint/eslint-plugin": "^5.61.0",
-    "@typescript-eslint/parser": "^5.61.0",
-    "@vitest/coverage-v8": "^0.32.4",
-    "@vitest/ui": "^0.32.4",
+    "@release-it/bumper": "^5.0.0",
+    "@release-it/conventional-changelog": "^7.0.0",
+    "@types/node": "^20.4.1",
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "@vitest/coverage-v8": "^0.33.0",
+    "@vitest/ui": "^0.33.0",
     "eslint": "^8.44.0",
     "eslint-config-turbo": "^1.10.7",
     "eslint-define-config": "^1.21.0",
@@ -60,16 +61,17 @@
     "esno": "^0.16.3",
     "lint-staged": "^13.2.3",
     "markdown-link-check": "^3.11.2",
-    "pnpm": "^8.6.6",
-    "prettier": "^2.8.8",
+    "pnpm": "^8.6.7",
+    "prettier": "^3.0.0",
+    "release-it": "^16.1.0",
     "rimraf": "^5.0.1",
     "simple-git-hooks": "^2.8.1",
     "taze": "^0.11.2",
     "tsup": "^7.1.0",
     "typescript": "^5.1.6",
-    "vite": "^4.3.9",
+    "vite": "^4.4.3",
     "vite-tsconfig-paths": "^4.2.0",
-    "vitest": "^0.32.4"
+    "vitest": "^0.33.0"
   },
   "simple-git-hooks": {
     "commit-msg": "echo $(cat .git/COMMIT_EDITMSG) | npx commitlint",
@@ -79,8 +81,11 @@
     "*": [
       "nr format"
     ],
-    "*.[jt]s?(x)": [
-      "nr lint:fix"
+    "packages/**/*.{js,ts,jsx,tsx,json}": [
+      "nr lint"
+    ],
+    "*.{md,mdx}": [
+      "nr markdown:lint"
     ]
   },
   "stackblitz": {

@@ -4,10 +4,9 @@ cleanDir() {
   if [ -d "$1" ]; then
     echo "[ WAITING⌛ ]: Removing $1"
     rm -rf "$1"
-    echo ""
     echo "[ SUCESS ✅ ]: Removed $1"
   else
-    echo "[ ERROR 🥅 ]: $1 not exists"
+    echo "[ ERROR 🥅 ]: '$1' not exists"
   fi
 }
 
@@ -17,7 +16,6 @@ cleanNestedDir() {
     args1=$1
     args2=$2
     rm -rf "${args1:?}"/**/"${args2:?}"
-    echo ""
     echo "[ SUCESS ✅ ]: Removed $1/**/$2"
   else
     echo "[ ERROR 🥅 ]: $1/**/$2 not exists"
@@ -28,35 +26,29 @@ cleanFile() {
   if [ -f "$1" ]; then
     echo "[ WAITING⌛ ]: Removing $1"
     rm -rf "$1"
-    echo ""
     echo "[ SUCESS ✅ ]: Removed $1"
   else
-    echo "[ ERROR 🥅 ]: $1 not exists"
+    echo "[ ERROR 🥅 ]: '$1' not exists"
   fi
 }
 
 cleaEslintCache() {
-  echo ""
   cleanFile .eslintcache
 }
 
 cleaCoverage() {
-  echo ""
   cleanDir coverage
 }
 
 cleaDist() {
   if [ -d "$1" ]; then
-    echo ""
     cleanNestedDir "$1" dist
   else
-    echo ""
     cleanDir "$1"
   fi
 }
 
 cleanRootNM() {
-  echo ""
   if [ -d "node_modules" ]; then
     echo "[ WAITING⌛ ]: Removing root node_modules"
     rm -rf node_modules
@@ -68,17 +60,11 @@ cleanRootNM() {
 }
 
 cleanNestedNM() {
-  echo ""
   if [ -d "$1" ]; then
-    if [ -d "node_modules" ]; then
-      echo "[ WAITING⌛ ]: Removing $1/**/node_modules"
-      args1=$1
-      rm -rf "${args1:?}"/**/node_modules
-      echo ""
-      echo "[ SUCESS ✅ ]: Removed $1/**/node_modules"
-    else
-      echo "[ ERROR 🥅 ]: $1/node_modules does not exists."
-    fi
+    args1=$1
+    rm -rf "${args1:?}"/node_modules
+    rm -rf "${args1:?}"/**/node_modules
+    echo "[ SUCESS ✅ ]: Removed $1/**/node_modules"
   else
     echo "[ ERROR 🥅 ]: Directory $1 does not exists."
   fi
@@ -106,10 +92,9 @@ for arg in "$@"; do
     echo "-cnm, --clean-nm : Clean node_modules files."
     ;;
   -v | --version)
-    echo "GRFT commander version 1.0"
+    echo "GFFT commander version 1.0"
     ;;
   -c | --clean)
-    cleaDist
     cleaDist packages
     cleaCoverage
     cleaEslintCache
