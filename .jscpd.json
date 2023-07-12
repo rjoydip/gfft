@@ -4,6 +4,7 @@
   "ignore": [
     "**/node_modules/**",
     "**/.git/**",
+    "**/.github/ISSUE_TEMPLATE/**"
     "**/packages/**/tsup.config.ts"
   ]
 }
