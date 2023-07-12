@@ -7,7 +7,7 @@ on:
       - edited
       - synchronize
     branches:
-      - master
+      - main
 
 permissions:
   contents: read
