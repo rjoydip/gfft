@@ -102,6 +102,19 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: ./
+          args: >
+            -Dsonar.verbose=true
+            -Dsonar.sourceEncoding=UTF-8
+            -Dsonar.organization=rjoydip
+            -Dsonar.projectKey=rjoydip_gfft
+            -Dsonar.tests=**/test/
+            -Dsonar.sources=**/src/**
+            -Dsonar.cpd.exclusions=**/test/**
+            -Dsonar.test.exclusions=**/test/**
+            -Dsonar.typescript.tsconfigPath=tsconfig.json
+            -Dsonar.typescript.lcov.reportPaths=coverage/lcov-report
 
   security:
     runs-on: ubuntu-latest

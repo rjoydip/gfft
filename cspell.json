@@ -43,6 +43,7 @@
     "infile",
     "Joydip",
     "kohler",
+    "lcov",
     "markdownlint",
     "markdownlintignore",
     "megalinter",

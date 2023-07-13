@@ -12,7 +12,6 @@
 .turbo
 .dockerignore
 .gitpod.Dockerfile
-.sonarcloud.properties
 dist/
 scripts/
 fixtures/
