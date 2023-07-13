@@ -12,16 +12,16 @@
   </p>
 
 [![CI][ci-shield]][ci-url]
+[![CodeQL][codeql-image]][codeql-url]
 [![License][license-image]][license-url]
 [![GitHub tag][release-tag-image]][release-url]
 [![codecov][codecov-image]][codecov-url]
 [![PRs Welcome][pr-welcome-image]][pr-welcome-url]
-[![djlint-image][djlint-image]][djlint-url]
 [![Conventional Commits][conventional-commits-image]][conventional-commits-url]
-[![MegaLinter][megalinter-image]][megalinter-url]
 [![Gitpod Ready-to-Code][gitpod-image]][gitpod-url]
 [![Node Version][node-image]][node-url]
 [![Typescript][typescript-image]][typescript-url]
+[![actions-cool][actions-cool-image]][actions-cool-url]
 [![PNPM][pnpm-image]][pnpm-url]
 [![VS Code Container][vscode-container-image]][vscode-container-url]
 
@@ -54,14 +54,12 @@ Released under [MIT](./LICENSE) by [@rjoydip](https://github.com/rjoydip).
 
 [ci-shield]: https://github.com/rjoydip/gfft/actions/workflows/ci.yml/badge.svg
 [ci-url]: https://github.com/rjoydip/gfft/actions/workflows/ci.yml
+[codeql-image]: https://github.com/rjoydip/gfft/actions/workflows/codeql.yml/badge.svg
+[codeql-url]: https://github.com/rjoydip/gfft/actions/workflows/codeql.yml
 [license-image]: https://img.shields.io/npm/l/markdownlint.svg
 [license-url]: https://github.com/rjoydip/gfft/blob/main/LICENSE
 [release-tag-image]: https://img.shields.io/github/tag/rjoydip/gfft?include_prereleases=&sort=semver&color=green
 [release-url]: https://github.com/rjoydip/gfft/releases
-[djlint-image]: https://img.shields.io/badge/html%20style-djlint-blue.svg
-[djlint-url]: https://www.djlint.com
-[megalinter-image]: https://github.com/rjoydip/gfft/actions/workflows/mega-linter.yml/badge.svg
-[megalinter-url]: https://github.com/rjoydip/gfft/actions/workflows/mega-linter.yml
 [codecov-image]: https://codecov.io/gh/rjoydip/gfft/branch/main/graph/badge.svg?token=YV7AKXYY12
 [codecov-url]: https://codecov.io/gh/rjoydip/gfft
 [pr-welcome-image]: https://img.shields.io/badge/PRs-welcome-brightgreen.svg
@@ -78,3 +76,5 @@ Released under [MIT](./LICENSE) by [@rjoydip](https://github.com/rjoydip).
 [conventional-commits-url]: https://conventionalcommits.org
 [vscode-container-image]: https://img.shields.io/static/v1?label=VS+Code&message=Container&logo=visualstudiocode&color=007ACC&logoColor=007ACC&labelColor=2C2C32
 [vscode-container-url]: https://open.vscode.dev/microsoft/vscode
+[actions-cool-image]: https://img.shields.io/badge/using-actions--cool-blue
+[actions-cool-url]: https://github.com/actions-cool
