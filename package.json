@@ -74,7 +74,6 @@
     "taze": "^0.11.2",
     "tsup": "^7.1.0",
     "typescript": "^5.1.6",
-    "vite": "^4.4.3",
     "vite-tsconfig-paths": "^4.2.0",
     "vitest": "^0.33.0"
   },

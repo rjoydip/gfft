@@ -1,8 +1,8 @@
-import { Counter } from '../../src'
+import { Header } from '../src'
 
 export default {
-  title: 'Components/Counter',
-  component: Counter,
+  title: 'Components/Header',
+  component: Header,
   parameters: {
     layout: 'fullscreen',
   },
