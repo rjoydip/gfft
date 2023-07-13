@@ -90,6 +90,8 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - uses: ./.github/actions/setup-node
+      - name: Install
+        run: pnpm i
       - name: Snyk monitor
         run: snyk monitor
         env:

@@ -98,6 +98,9 @@ importers:
       simple-git-hooks:
         specifier: ^2.8.1
         version: 2.8.1
+      synk:
+        specifier: ^0.0.2
+        version: 0.0.2
       taze:
         specifier: ^0.11.2
         version: 0.11.2
@@ -13841,6 +13844,11 @@ packages:
 
   /synchronous-promise@2.0.17:
     resolution: {integrity: sha512-AsS729u2RHUfEra9xJrE39peJcc2stq2+poBXX8bcM08Y6g9j/i/PUzwNQqkaJde7Ntg1TO7bSREbR5sdosQ+g==}
+    dev: true
+
+  /synk@0.0.2:
+    resolution: {integrity: sha512-GxI9a4mHYI8eDHbqpCQFHNDmJ1K6OP+abvTa8acPiFi+NZFnEpN0f1GNfxA0xWbtTGm0CdW38PgXwFjNNKQDTw==, tarball: https://registry.npmjs.org/synk/-/synk-0.0.02.tgz}
+    hasBin: true
     dev: true
 
   /tar-fs@2.1.1:
