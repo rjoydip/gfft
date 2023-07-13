@@ -3,6 +3,7 @@
 .turbo
 .dockerignore
 .gitpod.Dockerfile
+.sonarcloud.properties
 gfft.code-workspace
 dist
 node_modules

@@ -90,6 +90,19 @@ jobs:
       - name: Test CLI
         run: pnpm run test:cli
 
+  sonarcloud:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: ./.github/actions/setup-node
+      - name: Install
+        run: pnpm i
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+
   security:
     runs-on: ubuntu-latest
     steps:
