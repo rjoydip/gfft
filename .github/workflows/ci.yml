@@ -54,7 +54,6 @@ jobs:
           - os: windows-latest
             node_version: 18
       fail-fast: false
-
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup-node
@@ -70,6 +69,26 @@ jobs:
         if: matrix.os == 'ubuntu-latest' && matrix.node_version == 18
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          projectBaseDir: ./
+          args: >
+            -Dsonar.verbose=true
+            -Dsonar.sourceEncoding=UTF-8
+            -Dsonar.projectVersion=1.0
+            -Dsonar.organization=rjoydip
+            -Dsonar.projectKey=rjoydip_gfft
+            -Dsonar.exclusions=**/*.bin
+            -Dsonar.tests=test
+            -Dsonar.sources=src
+            -Dsonar.cpd.exclusions=test
+            -Dsonar.test.exclusions=test/**
+            -Dsonar.typescript.tsconfigPath=tsconfig.json
+            -Dsonar.typescript.lcov.reportPaths=coverage/lcov-report
 
   test_cli:
     runs-on: ${{ matrix.os }}
@@ -89,32 +108,6 @@ jobs:
         run: pnpm i
       - name: Test CLI
         run: pnpm run test:cli
-
-  sonarcloud:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@master
-      - uses: ./.github/actions/setup-node
-      - name: Install
-        run: pnpm i
-      - name: SonarCloud Scan
-        uses: sonarsource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          projectBaseDir: ./
-          args: >
-            -Dsonar.verbose=true
-            -Dsonar.sourceEncoding=UTF-8
-            -Dsonar.organization=rjoydip
-            -Dsonar.projectKey=rjoydip_gfft
-            -Dsonar.tests=**/test/
-            -Dsonar.sources=**/src/**
-            -Dsonar.cpd.exclusions=**/test/**
-            -Dsonar.test.exclusions=**/test/**
-            -Dsonar.typescript.tsconfigPath=tsconfig.json
-            -Dsonar.typescript.lcov.reportPaths=coverage/lcov-report
 
   security:
     runs-on: ubuntu-latest
