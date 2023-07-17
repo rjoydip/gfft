@@ -7,6 +7,6 @@ describe('Header', () => {
     const { queryByText } = render(<Header />)
     const headerTxt = await queryByText('Header')
     expect(headerTxt).toBeTruthy()
-    expect(headerTxt).toBe('Header')
+    expect(headerTxt?.textContent).toBe('Header')
   })
 })
