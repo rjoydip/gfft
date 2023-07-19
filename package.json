@@ -44,7 +44,7 @@
     "clean": "node scripts/commander.js clean",
     "clean:nm": "node scripts/commander.js clean --nm",
     "changelog": "npx auto-changelog",
-    "all": "nr clean && nr deps:fresh && nr format && nr lint && lint:spell && nr lint:secret && nr lint:md && nr test:ci && nr test:cli && nr test:storybook"
+    "all": "nr clean && nr deps:fresh && nr changelog && nr format && nr lint && nr lint:spell && nr lint:secret && nr lint:md && nr test:ci && nr test:cli && nr test:storybook"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.5",
@@ -64,7 +64,6 @@
     "cspell": "^6.31.2",
     "envinfo": "^7.10.0",
     "eslint": "^8.45.0",
-    "eslint-config-turbo": "^1.10.8",
     "eslint-define-config": "^1.21.0",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-n": "^16.0.1",
