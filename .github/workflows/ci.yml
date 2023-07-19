@@ -82,8 +82,6 @@ jobs:
       - uses: ./.github/actions/setup-node
       - name: Install
         run: pnpm i
-      - name: Install Playwright
-        run: npx playwright install --with-deps
       - name: Serve Storybook and run tests
         run: pnpm test:storybook
 
