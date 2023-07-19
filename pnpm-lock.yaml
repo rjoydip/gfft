@@ -44,6 +44,9 @@ importers:
       '@vitest/ui':
         specifier: ^0.33.0
         version: 0.33.0(vitest@0.33.0)
+      auto-changelog:
+        specifier: ^2.4.0
+        version: 2.4.0
       concurrently:
         specifier: ^8.2.0
         version: 8.2.0
@@ -116,9 +119,6 @@ importers:
       size-limit:
         specifier: ^8.2.6
         version: 8.2.6
-      synk:
-        specifier: ^0.0.2
-        version: 0.0.2
       taze:
         specifier: ^0.11.2
         version: 0.11.2
@@ -6059,6 +6059,20 @@ packages:
     resolution: {integrity: sha512-Oei9OH4tRh0YqU3GxhX79dM/mwVgvbZJaSNaRk+bshkj0S5cfHcgYakreBjrHwatXKbz+IoIdYLxrKim2MjW0Q==}
     dev: true
 
+  /auto-changelog@2.4.0:
+    resolution: {integrity: sha512-vh17hko1c0ItsEcw6m7qPRf3m45u+XK5QyCrrBFViElZ8jnKrPC1roSznrd1fIB/0vR/zawdECCRJtTuqIXaJw==}
+    engines: {node: '>=8.3'}
+    hasBin: true
+    dependencies:
+      commander: 7.2.0
+      handlebars: 4.7.7
+      node-fetch: 2.6.11
+      parse-github-url: 1.0.2
+      semver: 7.5.4
+    transitivePeerDependencies:
+      - encoding
+    dev: true
+
   /available-typed-arrays@1.0.5:
     resolution: {integrity: sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==}
     engines: {node: '>= 0.4'}
@@ -6807,6 +6821,11 @@ packages:
   /commander@6.2.1:
     resolution: {integrity: sha512-U7VdrJFnJgo4xjrHpTzu0yrHPGImdsmD95ZlgYSEajAn2JKzDhDTPG9kBTefmObL2w/ngeZnilk+OV9CG3d7UA==}
     engines: {node: '>= 6'}
+    dev: true
+
+  /commander@7.2.0:
+    resolution: {integrity: sha512-QrWXB+ZQSVPmIWIhtEO9H+gwHaMGYiF5ChvoJ+K9ZGHG/sVsa6yiesAD1GC/x46sET00Xlwo1u49RVVVzvcSkw==}
+    engines: {node: '>= 10'}
     dev: true
 
   /commander@9.5.0:
@@ -12314,6 +12333,12 @@ packages:
       is-hexadecimal: 1.0.4
     dev: true
 
+  /parse-github-url@1.0.2:
+    resolution: {integrity: sha512-kgBf6avCbO3Cn6+RnzRGLkUsv4ZVqv/VfAYkRsyBcgkshNvVBkRn1FEZcW0Jb+npXQWm2vHPnnOqFteZxRRGNw==}
+    engines: {node: '>=0.10.0'}
+    hasBin: true
+    dev: true
+
   /parse-json@4.0.0:
     resolution: {integrity: sha512-aOIos8bujGN93/8Ox/jPLh7RwVnPEysynVFE+fQZyg6jKELEHwzgKdLRFHUgXJL6kylijVSBC4BvN9OmsB48Rw==}
     engines: {node: '>=4'}
@@ -14147,11 +14172,6 @@ packages:
 
   /synchronous-promise@2.0.17:
     resolution: {integrity: sha512-AsS729u2RHUfEra9xJrE39peJcc2stq2+poBXX8bcM08Y6g9j/i/PUzwNQqkaJde7Ntg1TO7bSREbR5sdosQ+g==}
-    dev: true
-
-  /synk@0.0.2:
-    resolution: {integrity: sha512-GxI9a4mHYI8eDHbqpCQFHNDmJ1K6OP+abvTa8acPiFi+NZFnEpN0f1GNfxA0xWbtTGm0CdW38PgXwFjNNKQDTw==, tarball: https://registry.npmjs.org/synk/-/synk-0.0.02.tgz}
-    hasBin: true
     dev: true
 
   /table@6.8.1:
