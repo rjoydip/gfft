@@ -22,29 +22,29 @@
     "shell": "bash"
   },
   "scripts": {
-    "prebuild": "ni",
     "pretest": "nr build",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks",
-    "release": "release-it --ci",
-    "lint": "eslint --cache --fix .",
-    "lint:spell": "cspell .",
-    "lint:secret": "secretlint \"**/*\"",
-    "deps:fresh": "taze -r -w -i",
-    "format": "prettier --write --cache .",
-    "build": "pnpm -r --filter='./packages/**' run build",
-    "build:storybook": "pnpm run -C './packages/ui' storybook:build",
-    "dev": "pnpm -r --filter='./packages/**' run dev",
-    "test": "vitest run -r packages",
-    "test:ci": "nr build && CI=true nr test && size-limit",
-    "test:watch": "nr build && nr test --watch",
-    "test:cli": "nr build && ni && pnpm run -C './packages/cli' test:cli",
-    "test:storybook": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm run -C ./packages/ui preview:storybook\" \"npx wait-on tcp:6006 && pnpm run -C ./packages/ui test:storybook\"",
-    "lint:md": "node scripts/markdownlint.js $(glob '{*.md,{.github,packages,fixtures}/**/*.md}' -i '**/node_modules/**')",
+    "changelog": "npx auto-changelog",
     "clean": "node scripts/commander.js clean",
     "clean:nm": "node scripts/commander.js clean --nm",
-    "changelog": "npx auto-changelog",
-    "all": "nr clean && nr deps:fresh && nr changelog && nr format && nr lint && nr lint:spell && nr lint:secret && nr lint:md && nr test:ci && nr test:cli && nr test:storybook"
+    "build": "pnpm -r --filter='./packages/**' run build",
+    "build:storybook": "pnpm run -C './packages/ui' storybook:build",
+    "deps:fresh": "taze -r -w -i",
+    "dev": "pnpm -r --filter='./packages/**' run dev",
+    "format": "prettier --write --cache .",
+    "lint": "eslint --cache --fix .",
+    "lint:spell": "cspell .",
+    "lint:size-limit": "size-limit",
+    "lint:secret": "secretlint \"**/*\"",
+    "lint:md": "node scripts/markdownlint.js $(glob '{*.md,{.github,packages,fixtures}/**/*.md}' -i '**/node_modules/**')",
+    "release": "release-it --ci",
+    "test": "vitest run -r packages",
+    "test:ci": "nr build && CI=true nr test",
+    "test:watch": "nr build && nr test --watch",
+    "test:cli": "nr build && pnpm run -C './packages/cli' test:cli",
+    "test:storybook": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"pnpm run -C ./packages/ui preview:storybook\" \"npx wait-on tcp:6006 && pnpm run -C ./packages/ui test:storybook\"",
+    "all": "nr clean && nr deps:fresh && nr format && nr lint && nr lint:spell && nr lint:secret && nr lint:md && nr test:ci && nr test:cli && nr lint:size-limit && nr test:storybook"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.5",
@@ -71,7 +71,6 @@
     "esno": "^0.16.3",
     "execa": "^7.1.1",
     "glob": "^10.3.3",
-    "lint-staged": "^13.2.3",
     "markdownlint": "^0.29.0",
     "ora": "^6.3.1",
     "pnpm": "^8.6.9",
@@ -91,19 +90,7 @@
     "wait-on": "^7.0.1"
   },
   "simple-git-hooks": {
-    "commit-msg": "echo $(cat .git/COMMIT_EDITMSG) | npx commitlint",
-    "pre-commit": "pnpm exec lint-staged --concurrent true"
-  },
-  "lint-staged": {
-    "*": [
-      "nr format"
-    ],
-    "packages/**/*.{js,ts,jsx,tsx,json}": [
-      "nr lint"
-    ],
-    "*.{md,mdx}": [
-      "nr lint:md"
-    ]
+    "pre-commit": "pnpm run all"
   },
   "size-limit": [
     {

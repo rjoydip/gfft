@@ -21,14 +21,16 @@ jobs:
       - uses: ./.github/actions/setup-node
       - name: Install
         run: pnpm i
-      - name: Lint
+      - name: ESlint
         run: pnpm run lint
-      - name: Markdown Lint
+      - name: Markdown
         run: pnpm run lint:md
-      - name: Spell Lint
+      - name: Spell
         run: pnpm run lint:spell
-      - name: Secret Lint
+      - name: Secret
         run: pnpm run lint:secret
+      - name: Size Limit
+        run: pnpm run lint:size-limit
 
   build:
     runs-on: ubuntu-latest
