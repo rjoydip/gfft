@@ -1,3 +1,3 @@
-export const Header = (): JSX.Element => {
+export const Header = () => {
   return <div>Header</div>
 }
