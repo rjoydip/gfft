@@ -92,13 +92,13 @@
     "wait-on": "^7.0.1"
   },
   "simple-git-hooks": {
+    "pre-push": "pnpm all",
     "commit-msg": "echo $(cat .git/COMMIT_EDITMSG) | npx commitlint",
     "pre-commit": "pnpm exec lint-staged --concurrent true"
   },
   "lint-staged": {
     "*": [
-      "nr format",
-      "nr changelog"
+      "nr format"
     ],
     "packages/**/*.{js,ts,jsx,tsx,json}": [
       "nr lint"
