@@ -16,6 +16,7 @@ permissions:
 jobs:
   lint:
     runs-on: ubuntu-latest
+    needs: [build]
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup-node
@@ -44,7 +45,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    needs: build
+    needs: [build]
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup-node
@@ -60,7 +61,7 @@ jobs:
 
   test-cli:
     runs-on: ${{ matrix.os }}
-    needs: build
+    needs: [build]
     timeout-minutes: 10
     strategy:
       matrix:
@@ -87,7 +88,7 @@ jobs:
       - name: Install
         run: pnpm i
       - name: Serve Storybook and run tests
-        run: pnpm test:storybook
+        run: pnpm run test:storybook
 
   security:
     runs-on: ubuntu-latest
