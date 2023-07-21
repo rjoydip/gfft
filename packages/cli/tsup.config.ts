@@ -3,11 +3,8 @@ import { mergeConfig } from 'vitest/config'
 import { config as defaultTsupSharedConfig } from '../../tsup.shared'
 
 export default defineConfig((options) => {
-  return mergeConfig(
-    {
-      minify: !options.watch,
-      format: ['esm'],
-    },
-    defaultTsupSharedConfig,
-  )
+  return mergeConfig(defaultTsupSharedConfig, {
+    minify: !options.watch,
+    format: ['esm'],
+  })
 })

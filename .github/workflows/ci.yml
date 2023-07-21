@@ -95,7 +95,9 @@ jobs:
       - name: Install
         run: pnpm i
       - name: Snyk monitor
-        run: npx snyk monitor --all-projects
+        run: |
+          snyk auth SNYK_TOKEN
+          snyk monitor --all-projects
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 

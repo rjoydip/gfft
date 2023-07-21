@@ -29,16 +29,15 @@
     "*.d.ts"
   ],
   "scripts": {
-    "build": "tsup",
+    "build": "pnpm --filter utils run build && tsup",
     "dev": "tsup ./src/index.ts --watch"
   },
   "dependencies": {
-    "mustache": "^4.2.0",
-    "tiny-glob": "^0.2.9"
+    "@gfft/utils": "workspace:*",
+    "mustache": "^4.2.0"
   },
   "devDependencies": {
     "@types/mustache": "^4.2.2",
-    "find-monorepo-root": "^1.0.3",
-    "pkg-dir": "^7.0.0"
+    "find-monorepo-root": "^1.0.3"
   }
 }
