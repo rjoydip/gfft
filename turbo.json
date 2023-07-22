@@ -8,22 +8,17 @@
     },
     "build": {
       "dependsOn": ["^build", "@gfft/ui#build:storybook"],
-      "outputs": ["dist/**", "storybook-static/**"],
+      "outputs": ["dist/**"],
       "outputMode": "new-only"
     },
     "test": {
-      "dependsOn": ["^build", "test:ci", "test:cli", "@gfft/ui#test:storybook"]
+      "dependsOn": [
+        "build",
+        "test:ci",
+        "@gfft/cli#test:cli",
+        "@gfft/ui#test:storybook"
+      ]
     },
-    "test:cli": {
-      "dependsOn": ["@gfft/core#build", "@gfft/utils#build"],
-      "cache": false
-    },
-    "test:ci": {},
-    "build:storybook": {
-      "cache": false
-    },
-    "test:storybook": {
-      "cache": false
-    }
+    "test:ci": {}
   }
 }
