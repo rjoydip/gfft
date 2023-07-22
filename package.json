@@ -30,14 +30,15 @@
     "eslint": "eslint --cache --fix .",
     "lint:spell": "cspell .",
     "lint:secret": "secretlint \"**/*\"",
-    "lint:md": "node scripts/markdownlint.js $(glob '{*.md,{.github,packages,fixtures}/**/*.md}' -i '**/node_modules/**')",
+    "lint:md": "node scripts/markdownlint.js",
     "format": "prettier --write --cache .",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "test": "turbo run test",
+    "test:size-limit": "size-limit",
     "test:cli": "turbo run test:cli",
+    "test:ci": "CI=true vitest run -r packages",
     "test:watch": "vitest run -r packages --watch",
-    "test:ci": "CI=true vitest run -r packages && size-limit",
     "clean": "node scripts/commander.js clean",
     "clean:nm": "node scripts/commander.js clean --nm",
     "all": "nr clean && nr deps:fresh && nr format && nr lint && nr test"
@@ -95,6 +96,10 @@
     },
     {
       "path": "./packages/ui/dist/index.js",
+      "limit": "500B"
+    },
+    {
+      "path": "./packages/utils/dist/index.js",
       "limit": "500B"
     }
   ],

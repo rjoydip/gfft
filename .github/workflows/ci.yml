@@ -16,24 +16,13 @@ permissions:
 jobs:
   lint:
     runs-on: ubuntu-latest
-    needs: [build]
     steps:
       - uses: actions/checkout@v3
       - uses: ./.github/actions/setup-node
       - name: Install
         run: pnpm i
-      - name: ESlint
+      - name: Lint All
         run: pnpm run lint
-      - name: Markdown
-        run: pnpm run lint:md
-      - name: Spell
-        run: pnpm run lint:spell
-      - name: Secret
-        run: pnpm run lint:secret
-      - name: Size Limit
-        run: |
-          pnpm run build
-          pnpm run lint:size-limit
 
   build:
     runs-on: ubuntu-latest

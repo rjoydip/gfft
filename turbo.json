@@ -15,10 +15,12 @@
       "dependsOn": [
         "build",
         "test:ci",
+        "test:size-limit",
         "@gfft/cli#test:cli",
         "@gfft/ui#test:storybook"
       ]
     },
-    "test:ci": {}
+    "test:ci": {},
+    "test:size-limit": {}
   }
 }
