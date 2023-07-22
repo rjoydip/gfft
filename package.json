@@ -22,7 +22,6 @@
     "shell": "bash"
   },
   "scripts": {
-    "pretest": "nr build",
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks",
     "deps:fresh": "taze -r -w -i",
@@ -41,8 +40,8 @@
     "clean": "node scripts/commander.js clean",
     "clean:nm": "node scripts/commander.js clean --nm",
     "lint": "nr eslint && nr lint:spell && nr lint:secret && nr lint:md",
-    "test": "nr build && nr test:ci && nr test:cli && nr test:storybook",
-    "all": "nr clean && nr deps:fresh && nr format && nr lint && nr test && nr size-limit"
+    "test": "nr test:ci && nr test:cli && nr test:storybook",
+    "all": "nr clean && nr deps:fresh && nr format && nr lint && nr build && nr test && nr size-limit"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.5",

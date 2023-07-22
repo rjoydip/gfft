@@ -5,7 +5,7 @@
       "outputs": ["dist/**"]
     },
     "test:cli": {
-      "dependsOn": ["^build", "@gfft/core#build", "@gfft/utils#build"],
+      "dependsOn": ["build", "@gfft/core#build", "@gfft/utils#build"],
       "cache": false
     }
   }
