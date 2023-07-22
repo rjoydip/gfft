@@ -10,7 +10,7 @@
       "outputMode": "new-only"
     },
     "test:storybook": {
-      "cache": false
+      "dependsOn": ["build:storybook"]
     }
   }
 }

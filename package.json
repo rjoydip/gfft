@@ -37,6 +37,7 @@
     "test": "turbo run test",
     "test:size-limit": "size-limit",
     "test:cli": "turbo run test:cli",
+    "test:storybook": "turbo run test:storybook",
     "test:ci": "CI=true vitest run -r packages",
     "test:watch": "vitest run -r packages --watch",
     "clean": "node scripts/commander.js clean",
