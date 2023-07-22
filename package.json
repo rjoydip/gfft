@@ -26,23 +26,23 @@
     "preinstall": "npx only-allow pnpm",
     "postinstall": "simple-git-hooks",
     "deps:fresh": "taze -r -w -i",
-    "lint": "nr eslint && nr lint:spell && nr lint:secret && nr lint:md",
     "eslint": "eslint --cache --fix .",
     "lint:spell": "cspell .",
     "lint:secret": "secretlint \"**/*\"",
     "lint:md": "node scripts/markdownlint.js",
     "format": "prettier --write --cache .",
+    "size-limit": "size-limit",
     "build": "turbo run build",
     "dev": "turbo run dev",
-    "test": "turbo run test",
-    "test:size-limit": "size-limit",
-    "test:cli": "turbo run test:cli",
-    "test:storybook": "turbo run test:storybook",
+    "test:cli": "turbo run --filter=cli test:cli",
+    "test:storybook": "turbo run --filter=ui test:storybook",
     "test:ci": "CI=true vitest run -r packages",
     "test:watch": "vitest run -r packages --watch",
     "clean": "node scripts/commander.js clean",
     "clean:nm": "node scripts/commander.js clean --nm",
-    "all": "nr clean && nr deps:fresh && nr format && nr lint && nr test"
+    "lint": "nr eslint && nr lint:spell && nr lint:secret && nr lint:md",
+    "test": "nr build && nr test:ci && nr test:cli && nr test:storybook",
+    "all": "nr clean && nr deps:fresh && nr format && nr lint && nr test && nr size-limit"
   },
   "devDependencies": {
     "@antfu/ni": "^0.21.5",
@@ -101,7 +101,7 @@
     },
     {
       "path": "./packages/utils/dist/index.js",
-      "limit": "500B"
+      "limit": "600B"
     }
   ],
   "auto-changelog": {

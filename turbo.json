@@ -10,17 +10,6 @@
       "dependsOn": ["^build", "@gfft/ui#build:storybook"],
       "outputs": ["dist/**"],
       "outputMode": "new-only"
-    },
-    "test": {
-      "dependsOn": [
-        "build",
-        "test:ci",
-        "test:size-limit",
-        "@gfft/cli#test:cli",
-        "@gfft/ui#test:storybook"
-      ]
-    },
-    "test:ci": {},
-    "test:size-limit": {}
+    }
   }
 }
