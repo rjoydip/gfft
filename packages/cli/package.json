@@ -44,7 +44,6 @@
     "serialize-error": "^11.0.0"
   },
   "devDependencies": {
-    "execa": "^7.1.1",
     "find-monorepo-root": "^1.0.3"
   }
 }

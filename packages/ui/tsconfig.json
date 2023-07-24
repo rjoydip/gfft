@@ -1,5 +1,5 @@
 {
-  "extends": "../tsconfig/preact.json",
+  "extends": "../config/src/ts/preact.json",
   "compilerOptions": {
     "paths": {
       "@gfft/ui": ["./src/index.ts"]

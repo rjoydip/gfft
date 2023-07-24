@@ -1,0 +1,9 @@
+{
+  "extends": "../config/src/ts/node.json",
+  "compilerOptions": {
+    "paths": {
+      "@gfft/config": ["./src/index.ts"]
+    }
+  },
+  "exclude": ["dist", "*.d.ts"]
+}
