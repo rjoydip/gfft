@@ -62,7 +62,6 @@ void async function () {
             } else {
               await Promise.allSettled([
                 ...(await glob('packages/**/node_modules', {})).reverse().map(async i => {
-                  console.log(join(process.cwd(), i))
                   await $(`rmdir /S /Q ${join(process.cwd(), i)}`)
                 })
               ])
