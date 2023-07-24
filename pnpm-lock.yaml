@@ -63,8 +63,8 @@ importers:
         specifier: ^1.15.0
         version: 1.15.0(eslint@8.45.0)
       esno:
-        specifier: ^0.16.3
-        version: 0.16.3
+        specifier: ^0.17.0
+        version: 0.17.0
       fs-extra:
         specifier: ^11.1.1
         version: 11.1.1
@@ -167,6 +167,18 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
 
+  packages/scripts:
+    devDependencies:
+      '@types/prompts':
+        specifier: ^2.4.4
+        version: 2.4.4
+      esno:
+        specifier: ^0.17.0
+        version: 0.17.0
+      prompts:
+        specifier: ^2.4.2
+        version: 2.4.2
+
   packages/ui:
     dependencies:
       preact:
@@ -174,8 +186,8 @@ importers:
         version: 10.16.0
     devDependencies:
       '@storybook/addon-coverage':
-        specifier: ^0.0.8
-        version: 0.0.8
+        specifier: ^0.0.9
+        version: 0.0.9
       '@storybook/addon-essentials':
         specifier: 7.0.27
         version: 7.0.27(react-dom@18.2.0)(react@18.2.0)
@@ -183,8 +195,8 @@ importers:
         specifier: 7.1.0
         version: 7.1.0(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-links':
-        specifier: 7.0.27
-        version: 7.0.27(react-dom@18.2.0)(react@18.2.0)
+        specifier: 7.1.0
+        version: 7.1.0(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-storysource':
         specifier: ^7.1.0
         version: 7.1.0(react-dom@18.2.0)(react@18.2.0)
@@ -226,8 +238,8 @@ importers:
         version: 0.2.9
     devDependencies:
       esno:
-        specifier: ^0.16.3
-        version: 0.16.3
+        specifier: ^0.17.0
+        version: 0.17.0
       find-monorepo-root:
         specifier: ^1.0.3
         version: 1.0.3
@@ -3516,8 +3528,8 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/addon-coverage@0.0.8:
-    resolution: {integrity: sha512-SVcDZhBybHDxFYjMzPqHPypboRJjSn2xJKxIOTIFONfb//Jg2/3uATyyamBPjvoxWRkNIqBpANGm+BpJlWZtog==}
+  /@storybook/addon-coverage@0.0.9:
+    resolution: {integrity: sha512-+GrNBVRsdc80L9BvKEbMr5HZsK2U/qB4+YfaWfDIpLP7Xa5volBuPdpVh72Ox2ouz2ptyimTIDkJxYXPSgq98A==}
     dependencies:
       '@types/babel__core': 7.20.1
       '@types/istanbul-lib-coverage': 2.0.4
@@ -3627,8 +3639,8 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/addon-links@7.0.27(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-htnnP4VMvtuDAebd+fDDTrsZ6C6q8etag9+5rGhd/8I9NNHn6OZpAZONCk2uwqOOIS2PKQd/qmUwDz/yT2kcmQ==}
+  /@storybook/addon-links@7.1.0(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-1cEALwRfev7s/NDTJYwn6tg3JZv8zSwd12NMRWhc/PZdCMQf/X1TtOPqz/l3jqTkjANMQA+hxCNRNl4otPD1XQ==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -3638,14 +3650,14 @@ packages:
       react-dom:
         optional: true
     dependencies:
-      '@storybook/client-logger': 7.0.27
-      '@storybook/core-events': 7.0.27
+      '@storybook/client-logger': 7.1.0
+      '@storybook/core-events': 7.1.0
       '@storybook/csf': 0.1.1
       '@storybook/global': 5.0.0
-      '@storybook/manager-api': 7.0.27(react-dom@18.2.0)(react@18.2.0)
-      '@storybook/preview-api': 7.0.27
-      '@storybook/router': 7.0.27(react-dom@18.2.0)(react@18.2.0)
-      '@storybook/types': 7.0.27
+      '@storybook/manager-api': 7.1.0(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/preview-api': 7.1.0
+      '@storybook/router': 7.1.0(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/types': 7.1.0
       prop-types: 15.8.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
@@ -5238,6 +5250,13 @@ packages:
 
   /@types/pretty-hrtime@1.0.1:
     resolution: {integrity: sha512-VjID5MJb1eGKthz2qUerWT8+R4b9N+CHvGCzg9fn4kWZgaF9AhdYikQio3R7wV8YY1NsQKPaCwKz1Yff+aHNUQ==}
+    dev: true
+
+  /@types/prompts@2.4.4:
+    resolution: {integrity: sha512-p5N9uoTH76lLvSAaYSZtBCdEXzpOOufsRjnhjVSrZGXikVGHX9+cc9ERtHRV4hvBKHyZb1bg4K+56Bd2TqUn4A==}
+    dependencies:
+      '@types/node': 20.4.4
+      kleur: 3.0.3
     dev: true
 
   /@types/prop-types@15.7.5:
@@ -7729,6 +7748,13 @@ packages:
 
   /esno@0.16.3:
     resolution: {integrity: sha512-6slSBEV1lMKcX13DBifvnDFpNno5WXhw4j/ff7RI0y51BZiDqEe5dNhhjhIQ3iCOQuzsm2MbVzmwqbN78BBhPg==}
+    hasBin: true
+    dependencies:
+      tsx: 3.12.7
+    dev: true
+
+  /esno@0.17.0:
+    resolution: {integrity: sha512-w78cQGlptQfsBYfootUCitsKS+MD74uR5L6kNsvwVkJsfzEepIafbvWsx2xK4rcFP4IUftt4F6J8EhagUxX+Bg==}
     hasBin: true
     dependencies:
       tsx: 3.12.7
