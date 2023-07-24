@@ -76,7 +76,7 @@ void async function () {
           }
         } else {
           const spinner = ora(`[STARTED] Cleanup`).start()
-          await deleteAsync(['.turbo', '.eslintcache', '.pnpm-store', 'coverage', 'packages/**/.nyc_output', 'packages/**/storybook-static', 'packages/**/.turbo', 'packages/**/dist', 'fixtures/output/**']);
+          await deleteAsync(['.turbo', '.eslintcache', '.pnpm-store', 'coverage', 'packages/**/.nyc_output', 'packages/**/storybook-static', 'packages/**/.turbo', 'packages/**/dist', 'fixtures/output/**'], {});
           spinner.succeed(`[COMPLETED] Cleanup`)
         }
       } catch (err) {
