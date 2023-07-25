@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { defaultConfig, tsupConfig } from '../../src/tsup/index'
+import { defaultConfig, tsupConfig } from '../src/tsup'
 
 describe('@gfft/config > tsup', () => {
   test('should return default configuration', () => {

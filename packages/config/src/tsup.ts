@@ -1,5 +1,5 @@
 import type { Options } from 'tsup'
-import { configCreator } from '../configCreator'
+import { configCreator } from './configCreator'
 
 export const defaultConfig: Options = {
   entry: ['src/index.ts'],
