@@ -74,7 +74,7 @@
     "serialize-error": "^11.0.0",
     "simple-git-hooks": "^2.9.0",
     "size-limit": "^8.2.6",
-    "snyk": "^1.1195.0",
+    "snyk": "^1.1196.0",
     "taze": "^0.11.2",
     "tempura": "^0.4.0",
     "tsup": "^7.1.0",
