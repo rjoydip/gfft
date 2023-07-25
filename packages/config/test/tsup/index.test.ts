@@ -34,12 +34,16 @@ describe('@gfft/config > tsup', () => {
   })
 
   test('should validate all object entries', () => {
-    expect(Object.entries(defaultConfig).map(i => i[0])).toStrictEqual([
-      'entry', 'splitting',
-      'sourcemap', 'clean',
-      'dts', 'minify',
-      'target', 'format',
-      'platform'
+    expect(Object.entries(defaultConfig).map((i) => i[0])).toStrictEqual([
+      'entry',
+      'splitting',
+      'sourcemap',
+      'clean',
+      'dts',
+      'minify',
+      'target',
+      'format',
+      'platform',
     ])
   })
 

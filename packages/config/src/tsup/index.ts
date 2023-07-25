@@ -10,7 +10,7 @@ export const defaultConfig: Options = {
   minify: true,
   target: 'esnext',
   format: ['esm'],
-  platform: 'node'
+  platform: 'node',
 }
 
 export const tsupConfig = configCreator</**
