@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "sade": "^1.8.1",
-    "serialize-error": "^11.0.0"
+    "serialize-error": "^13.0.1"
   },
   "devDependencies": {
     "@gfft/config": "workspace:^",
