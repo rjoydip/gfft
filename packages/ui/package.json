@@ -22,7 +22,8 @@
     "build:storybook": "storybook build",
     "dev:storybook": "storybook dev -p 6006",
     "preview:storybook": "nr build:storybook && vite preview --outDir storybook-static --host 0.0.0.0 --port 6006 --strictPort true",
-    "test:storybook": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"nr preview:storybook\" \"npx wait-on tcp:6006 && test-storybook --url http://127.0.0.1:6006 --coverage\""
+    "serve:storybook": "vite preview --outDir storybook-static --host 0.0.0.0 --port 6006 --strictPort true",
+    "test:storybook": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"nr serve:storybook\" \"npx wait-on tcp:6006 && test-storybook --url http://127.0.0.1:6006 --coverage\""
   },
   "dependencies": {
     "preact": "^10.29.3"
