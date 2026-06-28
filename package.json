@@ -111,6 +111,11 @@
   "stackblitz": {
     "startCommand": "nr dev"
   },
+  "pnpm": {
+    "overrides": {
+      "playwright-core": "^1.61.1"
+    }
+  },
   "dependencies": {
     "cross-env": "^10.1.0"
   }

@@ -76,6 +76,8 @@ jobs:
       - uses: ./.github/actions/setup-node
       - name: Install
         run: pnpm i --no-frozen-lockfile
+      - name: Install Playwright browsers
+        run: pnpm --filter @gfft/ui exec playwright install chromium --with-deps
       - name: Serve Storybook and run tests
         run: pnpm run test:storybook
 
