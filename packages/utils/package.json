@@ -35,7 +35,7 @@
   "devDependencies": {
     "esno": "^0.17.0",
     "find-monorepo-root": "^1.0.3",
-    "tsup": "^7.1.0"
+    "tsup": "^7.3.0"
   },
   "dependencies": {
     "@gfft/config": "workspace:^",

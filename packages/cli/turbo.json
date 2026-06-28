@@ -1,6 +1,6 @@
 {
   "extends": ["//"],
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["@gfft/config#build", "@gfft/core#build"],
       "outputs": ["dist/**"]

@@ -8,6 +8,7 @@ import { beforeEach, describe, expect, test } from 'vitest'
 
 describe('@gfft/cli', async () => {
   let output_dir: string
+  const execOptions = { env: { ...process.env, NODE_NO_WARNINGS: '1' } }
   const $ = promisify(exec)
   const rootDir = (await findMonorepoRoot(process.cwd())).dir
   const fixturesPath = join(rootDir, 'fixtures')
@@ -24,7 +25,7 @@ describe('@gfft/cli', async () => {
   })
 
   test('Version', async () => {
-    const result = await $(`esno ${cliFilePath} generate -v`)
+    const result = await $(`esno ${cliFilePath} generate -v`, execOptions)
     expect(result.stdout).toStrictEqual(`GFFT, 0.1.0\n`)
   })
 
@@ -41,7 +42,7 @@ describe('@gfft/cli', async () => {
   })
 
   test('Without options', async () => {
-    const result = await $(`esno ${cliFilePath} generate`)
+    const result = await $(`esno ${cliFilePath} generate`, execOptions)
     expect(result.stderr).toStrictEqual('Error: No options specified\n')
   })
 
@@ -51,6 +52,7 @@ describe('@gfft/cli', async () => {
         fixturesPath,
         'template',
       )}`,
+      execOptions,
     )
     expect(result.stderr).toStrictEqual('Error: Data directory not exists\n')
   })
@@ -61,6 +63,7 @@ describe('@gfft/cli', async () => {
         fixturesPath,
         'data',
       )} -o ${output_dir}`,
+      execOptions,
     )
     expect(result.stderr).toStrictEqual(
       'Error: Template directory not exists\n',
@@ -73,6 +76,7 @@ describe('@gfft/cli', async () => {
         fixturesPath,
         'template',
       )}`,
+      execOptions,
     )
     expect(JSON.parse(result.stdout).length).toBe(2)
   })
@@ -83,6 +87,7 @@ describe('@gfft/cli', async () => {
         fixturesPath,
         'data',
       )} -o ${output_dir} -t ${join(fixturesPath, 'template')}`,
+      execOptions,
     )
     expect(JSON.parse(result.stdout).length).toBe(2)
   })

@@ -1,13 +1,13 @@
 {
   "extends": ["//"],
-  "pipeline": {
+  "tasks": {
     "build": {
       "dependsOn": ["@gfft/config#build", "build:storybook"],
       "outputs": ["dist/**"]
     },
     "build:storybook": {
       "outputs": ["storybook-static/**"],
-      "outputMode": "new-only"
+      "outputLogs": "new-only"
     },
     "test:storybook": {
       "dependsOn": ["build:storybook"]

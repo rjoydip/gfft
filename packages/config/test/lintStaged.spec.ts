@@ -10,7 +10,7 @@ describe('@gfft/config > lintStaged', () => {
     expect(
       lintStagedConfig({
         '.js': 'eslint --fix',
-      })
+      }),
     ).toEqual({ ...defaultConfig, '.js': 'eslint --fix' })
   })
 })
