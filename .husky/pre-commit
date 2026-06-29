@@ -2,6 +2,6 @@
 . "$(dirname -- "$0")/_/husky.sh"
 
 pnpm clean
-pnpm deps:fresh
+pnpm deps:update
 pnpm build
 pnpm lint

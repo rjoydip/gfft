@@ -1,7 +1,6 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "baseBranch": "origin/main",
-  "pipeline": {
+  "tasks": {
     "dev": {
       "dependsOn": ["^dev", "^build"],
       "cache": false
@@ -9,7 +8,7 @@
     "build": {
       "dependsOn": ["^build", "@gfft/ui#build:storybook"],
       "outputs": ["dist/**"],
-      "outputMode": "new-only"
+      "outputLogs": "new-only"
     },
     "test:ci": {
       "dependsOn": ["build"]

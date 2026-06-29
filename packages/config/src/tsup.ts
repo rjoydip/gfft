@@ -13,9 +13,11 @@ export const defaultConfig: Options = {
   platform: 'node',
 }
 
-export const tsupConfig = configCreator</**
- * any on configCreator to avoid error "The inferred type of 'tsup' cannot
- * be named without a reference to '.../node_modules/tsup'. This is likely not
- * portable. A type annotation is necessary."
- */
-any>(defaultConfig)
+export const tsupConfig = configCreator<
+  /**
+   * any on configCreator to avoid error "The inferred type of 'tsup' cannot
+   * be named without a reference to '.../node_modules/tsup'. This is likely not
+   * portable. A type annotation is necessary."
+   */
+  any
+>(defaultConfig)

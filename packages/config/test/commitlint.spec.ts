@@ -14,8 +14,8 @@ describe('@gfft/config > commitlint', () => {
         },
         {
           arrayMerge: 'overwrite',
-        }
-      )
+        },
+      ),
     ).toEqual({ ...defaultConfig, extends: ['other-config'] })
   })
 })
