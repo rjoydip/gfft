@@ -61,7 +61,7 @@
     "lint-staged": "^13.3.0",
     "markdownlint": "^0.29.0",
     "ora": "^6.3.1",
-    "pnpm": "^8.15.9",
+    "pnpm": "^10.34.5",
     "prettier": "^3.9.1",
     "prettier-package-json": "^2.8.0",
     "sade": "^1.8.1",
