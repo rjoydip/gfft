@@ -41,7 +41,7 @@
     "@storybook/preact-vite": "^7.6.24",
     "@storybook/test-runner": "^0.24.4",
     "@storybook/testing-library": "^0.2.2",
-    "concurrently": "^8.2.2",
+    "concurrently": "^10.0.3",
     "nyc": "^18.0.0",
     "playwright": "^1.61.1",
     "storybook": "7.1.0",
