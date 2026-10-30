@@ -39,7 +39,7 @@
     "@storybook/jest": "^0.2.3",
     "@storybook/preact": "^7.6.24",
     "@storybook/preact-vite": "^7.6.24",
-    "@storybook/test-runner": "^0.13.0",
+    "@storybook/test-runner": "^0.24.4",
     "@storybook/testing-library": "^0.2.2",
     "concurrently": "^8.2.2",
     "nyc": "^18.0.0",
